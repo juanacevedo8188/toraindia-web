@@ -566,18 +566,21 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
       <span class="eyebrow">Compromiso y desarrollo</span>
       <h2 style="margin-top:10px; margin-bottom:20px; font-size:2.2rem; font-family:var(--font-body); font-weight:800; text-transform:none;">Más que competir</h2>
       <p>Atleta de alto rendimiento con trayectoria ininterrumpida en el SUP desde 2018. Su compromiso con el deporte trasciende la competencia: se desempeñó como organizadora de eventos y copas, trabajando activamente en el fortalecimiento del semillero nacional. Forma parte, hasta la actualidad, de una de las escuelas de formación más prestigiosas de Argentina, donde se dedica a la enseñanza técnica y al acompañamiento de nuevos atletas.</p>
-      <!-- TEXTO: compromiso · trayectoria año por año (data-foto: archivo de assets, texto: el logro) -->
+      <!-- TEXTO: compromiso · trayectoria año por año
+           data-foto = archivo dentro de assets/
+           data-pie  = descripcion corta que aparece encima de la foto
+           el texto del renglon = el logro del año, que va al lado del año grande -->
       <div class="years" id="years" data-desde="2018">
         <ol class="years-list">
-          <li data-anio="2018" data-foto="assets/image-c72dc7a006a9.webp">Debut en el SUP · Villa Constitución</li>
-          <li data-anio="2019" data-foto="assets/image-5d95790c9a0a.webp">Primeras competencias federadas</li>
-          <li data-anio="2020" data-foto="assets/image-14430033f8f5.webp">Año de entrenamiento y preparación</li>
-          <li data-anio="2021" data-foto="assets/image-d312193a86ae.webp">Vuelta a la competencia</li>
-          <li data-anio="2022" data-foto="assets/image-43aeb792f91f.webp">Top 5 categoría Elite · Aloha Spirit, Brasil</li>
-          <li data-anio="2023" data-foto="assets/image-3639b52c46cf.webp">Top 5 categoría Elite · Aloha Spirit, Brasil</li>
-          <li data-anio="2024" data-foto="assets/image-3a51c85498c0.webp">16° del mundo en Técnico · Mundial ICF, Sarasota</li>
-          <li data-anio="2025" data-foto="assets/image-3ee45f90328b.webp">17° del mundo en Maratón · Jucuarán, El Salvador</li>
-          <li data-anio="2026" data-foto="assets/image-ec2e88d8c2de.webp">Triple Campeona Argentina · Quequén</li>
+          <li data-anio="2018" data-foto="assets/image-c72dc7a006a9.webp" data-pie="Primera regata en el Paraná">Debut en el SUP · Villa Constitución</li>
+          <li data-anio="2019" data-foto="assets/image-5d95790c9a0a.webp" data-pie="Entrenamiento en Villa Constitución">Primeras competencias federadas</li>
+          <li data-anio="2020" data-foto="assets/image-14430033f8f5.webp" data-pie="Preparación fuera del agua">Año de entrenamiento y preparación</li>
+          <li data-anio="2021" data-foto="assets/image-d312193a86ae.webp" data-pie="Regreso a las regatas nacionales">Vuelta a la competencia</li>
+          <li data-anio="2022" data-foto="assets/image-43aeb792f91f.webp" data-pie="Largada en Ilhabela, Brasil">Top 5 categoría Elite · Aloha Spirit, Brasil</li>
+          <li data-anio="2023" data-foto="assets/image-3639b52c46cf.webp" data-pie="Segunda edición del Aloha Spirit">Top 5 categoría Elite · Aloha Spirit, Brasil</li>
+          <li data-anio="2024" data-foto="assets/image-3a51c85498c0.webp" data-pie="Tabla de carrera en el Mundial">16° del mundo en Técnico · Mundial ICF, Sarasota</li>
+          <li data-anio="2025" data-foto="assets/image-3ee45f90328b.webp" data-pie="Maratón oceánica en El Salvador">17° del mundo en Maratón · Jucuarán, El Salvador</li>
+          <li data-anio="2026" data-foto="assets/image-ec2e88d8c2de.webp" data-pie="1° puesto, Copa Nacional FAC">Triple Campeona Argentina · Quequén</li>
         </ol>
       </div>
     </div>
@@ -1192,7 +1195,12 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
   var caja = document.getElementById('years');
   if(!caja) return;
   var datos = [].map.call(caja.querySelectorAll('.years-list li'), function(li){
-    return { anio: li.getAttribute('data-anio'), foto: li.getAttribute('data-foto') || '', nota: li.textContent.trim() };
+    return {
+      anio: li.getAttribute('data-anio'),
+      foto: li.getAttribute('data-foto') || '',
+      pie: li.getAttribute('data-pie') || '',
+      nota: li.textContent.trim()
+    };
   });
   if(!datos.length) return;
 
@@ -1236,7 +1244,7 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
       if(suave) foto.style.opacity = '0.3';
       previa.src = d.foto;
     }
-    if(fotoCap) fotoCap.textContent = d.nota || d.anio;
+    if(fotoCap) fotoCap.textContent = d.pie || d.nota || d.anio;
     capAnio.textContent = d.anio;
     capNota.textContent = d.nota;
     [].forEach.call(ticks.children, function(b, j){ b.setAttribute('aria-current', String(j === i)); });
