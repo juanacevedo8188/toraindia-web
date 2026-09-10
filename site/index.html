@@ -383,27 +383,28 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
     <a href="#partners">Sponsors</a><a href="#contacto">Contacto</a>
   </nav>
 </div>
-<div class="hero">
+<div class="hero hero-full">
+  <div class="hero-bg">
+    <img src="assets/hero-1600.webp"
+         srcset="assets/hero-1100.webp 1100w, assets/hero-1600.webp 1600w, assets/hero-2560.webp 2560w"
+         sizes="100vw"
+         alt="Natalí Elisei remando en aguas abiertas" width="2560" height="1440" decoding="async" fetchpriority="high" loading="eager">
+  </div>
   <div class="wrap hero-inner">
     <!-- TEXTO: portada · linea de arriba -->
     <div class="hero-top">
       <span>ROSARIO, ARGENTINA — SELECCIÓN ARGENTINA DE SUP</span>
       <span>DOSSIER 2026</span>
     </div>
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <!-- TEXTO: portada · titulo y presentacion -->
-        <span class="eyebrow">Atleta elite · Stand Up Paddle</span>
-        <h1 style="margin-top:10px;"><span class="fill">Natalí</span><span class="outline">Elisei</span></h1>
-        <p class="role">Soy Natalí Elisei, alias "Tora". Atleta de alto rendimiento de SUP residente en Rosario y seleccionada nacional de Stand Up Paddle. Tri campeona argentina FAC 2026. Mi carrera se caracteriza por la constancia, la disciplina y una sólida formación integral como estudiante avanzada del profesorado de Educación Física e instructora de la disciplina.</p>
-        <!-- TEXTO: portada · botones -->
-        <div class="hero-cta">
-          <a class="btn btn-solid" href="https://wa.link/lk04uq" target="_blank" rel="noopener noreferrer">Contacta conmigo</a>
-          <a class="btn btn-outline" href="#simulador">Probá tu marca en la tabla ↗</a>
-        </div>
-      </div>
-      <div class="hero-media">
-        <img src="assets/hero-natali.webp" alt="Natalí Elisei remando en aguas abiertas" width="1280" height="720" decoding="async" fetchpriority="high" loading="eager">
+    <div class="hero-copy">
+      <!-- TEXTO: portada · titulo y presentacion -->
+      <span class="eyebrow">Atleta elite · Stand Up Paddle</span>
+      <h1 style="margin-top:10px;"><span class="fill">Natalí</span><span class="outline">Elisei</span></h1>
+      <p class="role">Soy Natalí Elisei, alias "Tora". Atleta de alto rendimiento de SUP residente en Rosario y seleccionada nacional de Stand Up Paddle. Tri campeona argentina FAC 2026. Mi carrera se caracteriza por la constancia, la disciplina y una sólida formación integral como estudiante avanzada del profesorado de Educación Física e instructora de la disciplina.</p>
+      <!-- TEXTO: portada · botones -->
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="https://wa.link/lk04uq" target="_blank" rel="noopener noreferrer">Contacta conmigo</a>
+        <a class="btn btn-outline" href="#simulador">Probá tu marca en la tabla ↗</a>
       </div>
     </div>
   </div>
@@ -1128,6 +1129,32 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
 </script>
 <style>
   .hero{ height:auto; min-height:0; max-height:none; padding:calc(74px + clamp(20px,3vw,34px)) 0 clamp(44px,6vw,76px); overflow:visible; }
+
+  /* portada inmersiva: la foto ocupa toda la pantalla */
+  .hero-full{position:relative;min-height:100svh;padding:0;overflow:hidden;background:#07182c}
+  .hero-full .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-full .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:22% 45%;display:block}
+  .hero-full .hero-bg::after{content:"";position:absolute;inset:0;background:
+    linear-gradient(to right, rgba(7,24,44,0.9) 0%, rgba(7,24,44,0.6) 32%, rgba(7,24,44,0) 62%),
+    linear-gradient(to top, rgba(7,24,44,0.8) 0%, rgba(7,24,44,0.25) 28%, rgba(7,24,44,0) 55%),
+    linear-gradient(to bottom, rgba(7,24,44,0.5) 0%, rgba(7,24,44,0) 20%)}
+  .hero-full .hero-inner{position:relative;z-index:2;min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding-top:calc(74px + clamp(18px,2.5vw,30px));padding-bottom:clamp(40px,6vw,70px)}
+  .hero-full .hero-copy{max-width:38ch;margin-top:auto}
+  .hero-full .hero-top{color:#cfe0ec}
+  @media (max-width:900px){
+    .hero-full .hero-bg img{object-position:34% 40%}
+    .hero-full .hero-bg::after{background:
+      linear-gradient(to top, rgba(7,24,44,0.75) 0%, rgba(7,24,44,0.15) 45%, rgba(7,24,44,0) 68%),
+      linear-gradient(to bottom, rgba(7,24,44,0.6) 0%, rgba(7,24,44,0) 22%)}
+    /* el parrafo es largo: sobre foto necesita fondo propio para leerse */
+    .hero-full .hero-copy{
+      max-width:none;
+      background:linear-gradient(to top, rgba(7,24,44,0.97) 60%, rgba(7,24,44,0.86));
+      border-radius:16px;
+      padding:22px 20px 24px;
+      margin-inline:-4px;
+    }
+  }
   .hero-inner{ height:auto; justify-content:flex-start; padding-top:0; padding-bottom:0; gap:clamp(26px,4vw,44px); }
   .hero-top{ position:static; top:auto; bottom:auto; display:flex; justify-content:space-between; gap:16px; }
   .hero-top span:first-child{ max-width:none; }
