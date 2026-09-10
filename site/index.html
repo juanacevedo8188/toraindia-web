@@ -1137,11 +1137,13 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
   /* la animacion heredada del hero anterior pisaba el encuadre */
   .hero-full .hero-bg img{animation:none}
   /* en pantalla ancha entra toda la foto y sobra agua vacia: se cierra el encuadre */
+  /* la linea de arriba traia su propio margen y no alineaba con el titulo */
+  .hero-full .hero-top{padding-left:0;padding-right:0}
   @media (min-width:1000px){
-    .hero-full .hero-bg img{transform:scale(1.12);transform-origin:42% 48%}
+    .hero-full .hero-bg img{transform:scale(1.28);transform-origin:42% 48%}
   }
   @media (min-width:1000px) and (min-aspect-ratio:16/10){
-    .hero-full .hero-bg img{transform:scale(1.3);transform-origin:40% 46%}
+    .hero-full .hero-bg img{transform:scale(1.5);transform-origin:40% 46%}
   }
   .hero-full .hero-bg::after{content:"";position:absolute;inset:0;background:
     linear-gradient(to right, rgba(7,24,44,0.9) 0%, rgba(7,24,44,0.6) 32%, rgba(7,24,44,0) 62%),
