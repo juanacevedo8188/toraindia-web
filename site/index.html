@@ -374,7 +374,10 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
 </style><div id="progress"></div>
 <div class="subnav" id="subnav">
   <span class="brand">Natalí Elisei</span>
-  <nav>
+  <button class="subnav-boton" id="subnavBoton" type="button" aria-expanded="false" aria-controls="subnavMenu" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="subnavMenu">
     <a href="#perfil">Perfil</a>
     <a href="#logros">Trayectoria</a>
     <a href="#disciplinas">Disciplinas</a>
@@ -1212,6 +1215,37 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
     .voces-grid{grid-template-columns:1fr;gap:14px}
     .voces-lede{max-width:none}
   }
+  /* menu desplegable: en celular se ocultaban 6 de los 8 links */
+  .subnav-boton{display:none}
+  @media (max-width:700px){
+    .subnav{flex-wrap:wrap;align-items:center;gap:6px}
+    .subnav .brand{margin-right:auto}
+    .subnav nav{display:flex;gap:14px}
+    .subnav nav a{display:none}
+    .subnav nav a[href="#partners"]{display:none}
+    .subnav nav a[href="#simulador"]{display:block;font-size:13px}
+    .subnav-boton{
+      display:flex;order:4;flex-direction:column;justify-content:center;gap:5px;
+      width:44px;height:44px;padding:0 10px;background:none;border:0;cursor:pointer;
+    }
+    .subnav-boton span{display:block;height:2px;width:100%;background:#fff;border-radius:2px;transition:transform .2s ease,opacity .2s ease}
+    .subnav.menu-abierto .subnav-boton span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .subnav.menu-abierto .subnav-boton span:nth-child(2){opacity:0}
+    .subnav.menu-abierto .subnav-boton span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .subnav.menu-abierto nav{
+      display:flex;flex-direction:column;gap:0;width:100%;order:3;
+      margin-top:12px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.14);
+    }
+    .subnav.menu-abierto nav a{
+      display:block;padding:14px 2px;font-size:15px;letter-spacing:0.02em;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+    .subnav.menu-abierto nav a:last-child{border-bottom:0}
+    /* textos que quedaban por debajo del minimo legible en pantalla chica */
+    .hero-full .hero-top span{font-size:11px}
+    .season-stat .label,.season-when .year,.season-flags span,.voz figcaption em{font-size:11px}
+  }
+
   /* con el link de testimonios el menu roza la marca en pantallas medianas */
   @media (min-width:701px) and (max-width:1200px){
     .subnav nav{gap:15px}
@@ -1293,4 +1327,22 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
     .commit-solo{gap:18px;padding-left:20px}
   }
 </style>
+<script>
+(function(){
+  var barra = document.getElementById('subnav'), boton = document.getElementById('subnavBoton');
+  if(!barra || !boton) return;
+  function cerrar(){
+    barra.classList.remove('menu-abierto');
+    boton.setAttribute('aria-expanded', 'false');
+    boton.setAttribute('aria-label', 'Abrir menú');
+  }
+  boton.addEventListener('click', function(){
+    var abierto = barra.classList.toggle('menu-abierto');
+    boton.setAttribute('aria-expanded', String(abierto));
+    boton.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+  });
+  barra.querySelectorAll('nav a').forEach(function(a){ a.addEventListener('click', cerrar); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') cerrar(); });
+})();
+</script>
 </body></html>
