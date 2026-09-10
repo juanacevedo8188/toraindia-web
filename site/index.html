@@ -378,9 +378,11 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
     <a href="#perfil">Perfil</a>
     <a href="#logros">Trayectoria</a>
     <a href="#disciplinas">Disciplinas</a>
+    <a href="#testimonios">Testimonios</a>
     <a href="#temporada">Temporada</a>
     <a href="#simulador">Probá tu marca</a>
-    <a href="#partners">Sponsors</a><a href="#contacto">Contacto</a>
+    <a href="#partners">Sponsors</a>
+    <a href="#contacto">Contacto</a>
   </nav>
 </div>
 <div class="hero hero-full">
@@ -1210,6 +1212,17 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
     .voces-grid{grid-template-columns:1fr;gap:14px}
     .voces-lede{max-width:none}
   }
+  /* con el link de testimonios el menu roza la marca en pantallas medianas */
+  @media (min-width:701px) and (max-width:1200px){
+    .subnav nav{gap:15px}
+    .subnav a{font-size:13px}
+  }
+  @media (min-width:701px) and (max-width:1050px){
+    .subnav{padding-inline:22px}
+    .subnav nav{gap:12px}
+    .subnav .brand{font-size:1.05rem}
+  }
+
   /* en pantalla angosta el titulo y su bajada no entran lado a lado */
   @media (max-width:700px){
     .voces .section-head,.season .section-head{flex-direction:column;align-items:flex-start;gap:12px}
