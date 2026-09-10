@@ -1,7 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="NE">
-  <rect width="64" height="64" rx="14" fill="#0A1420"/>
-  <g fill="none" stroke="#DBFF5C" stroke-width="5.5" stroke-linecap="square" stroke-linejoin="miter">
-    <path d="M11 46V18l15 28V18"/>
-    <path d="M38 18v28M38 18h15M38 32h15M38 46h15"/>
+  <defs><clipPath id="borde"><rect width="64" height="64" rx="14"/></clipPath></defs>
+  <g clip-path="url(#borde)">
+    <rect width="64" height="64" fill="#74ACDF"/>
+    <rect y="14.1" width="64" height="35.8" fill="#FFFFFF"/>
+  </g>
+  <g fill="none" stroke-linecap="square" stroke-linejoin="miter">
+    <g stroke="#0B2545" stroke-width="7.7">
+      <path d="M11 46V18l15 28V18"/>
+      <path d="M38 18v28M38 18h15M38 32h15M38 46h15"/>
+    </g>
+    <g stroke="#F6B40E" stroke-width="5.5">
+      <path d="M11 46V18l15 28V18"/>
+      <path d="M38 18v28M38 18h15M38 32h15M38 46h15"/>
+    </g>
   </g>
 </svg>

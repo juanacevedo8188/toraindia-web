@@ -44,6 +44,7 @@ Todos los bloques de texto están señalizados con un comentario `<!-- TEXTO: ..
 | `frase destacada sobre la foto` | La cita grande sobre la foto |
 | `disciplinas · las cuatro tarjetas` | Sprint, Técnico, Maratón, Formación |
 | `compromiso · texto y numeros` | Sección "Más que competir" |
+| `testimonios · cada bloque es una persona` | Frase, nombre y rol de cada testimonio |
 | `categorias de sponsors que busca` | Las etiquetas de rubros |
 | `sponsors · marcas que la acompañan` | Sección de sponsors |
 | `temporada · titulo y numeros` | Encabezado y los cuatro contadores |
@@ -62,6 +63,8 @@ Todos los bloques de texto están señalizados con un comentario `<!-- TEXTO: ..
 ## Contenido pendiente
 
 El calendario de la temporada 2026/27 tiene **fechas inventadas** y lo avisa en pantalla. Hay que reemplazarlas por las reales antes de mandarle el link a una marca: bloque `TEXTO: temporada · las 8 fechas`. Si cambia la cantidad de fechas, actualizar también los cuatro contadores en `TEXTO: temporada · titulo y numeros`.
+
+Los tres testimonios están **inventados** y lo avisan en pantalla. Hay que reemplazarlos por frases reales, con nombre y rol de quien las dice: bloque `TEXTO: testimonios`.
 
 La sección Sponsors espera nombres y logos confirmados. No se deben interpretar las marcas visibles en las tablas de referencia como sponsors.
 

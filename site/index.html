@@ -1,9 +1,9 @@
 <!doctype html><html lang="es-AR"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#0d131a}img{max-width:100%}[hidden]:not([hidden=until-found]){display:none!important}</style><title>Natalí Elisei | SUP Argentina · Sponsors</title>
 <meta name="description" content="Conocé a Natalí Elisei, atleta de la Selección Argentina de SUP. Su trayectoria, calendario y propuestas para acompañarla como sponsor.">
 <link rel="canonical" href="https://toraindiasup.com.ar/">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
 <meta property="og:site_name" content="Natalí Elisei SUP">
@@ -374,36 +374,42 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
 </style><div id="progress"></div>
 <div class="subnav" id="subnav">
   <span class="brand">Natalí Elisei</span>
-  <nav>
+  <button class="subnav-boton" id="subnavBoton" type="button" aria-expanded="false" aria-controls="subnavMenu" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="subnavMenu">
     <a href="#perfil">Perfil</a>
     <a href="#logros">Trayectoria</a>
     <a href="#disciplinas">Disciplinas</a>
+    <a href="#testimonios">Testimonios</a>
     <a href="#temporada">Temporada</a>
     <a href="#simulador">Probá tu marca</a>
-    <a href="#partners">Sponsors</a><a href="#contacto">Contacto</a>
+    <a href="#partners">Sponsors</a>
+    <a href="#contacto">Contacto</a>
   </nav>
 </div>
-<div class="hero">
+<div class="hero hero-full">
+  <div class="hero-bg">
+    <img src="assets/hero-1600.webp"
+         srcset="assets/hero-1100.webp 1100w, assets/hero-1600.webp 1600w, assets/hero-2560.webp 2560w"
+         sizes="100vw"
+         alt="Natalí Elisei remando en aguas abiertas" width="2560" height="1440" decoding="async" fetchpriority="high" loading="eager">
+  </div>
   <div class="wrap hero-inner">
     <!-- TEXTO: portada · linea de arriba -->
     <div class="hero-top">
       <span>ROSARIO, ARGENTINA — SELECCIÓN ARGENTINA DE SUP</span>
       <span>DOSSIER 2026</span>
     </div>
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <!-- TEXTO: portada · titulo y presentacion -->
-        <span class="eyebrow">Atleta elite · Stand Up Paddle</span>
-        <h1 style="margin-top:10px;"><span class="fill">Natalí</span><span class="outline">Elisei</span></h1>
-        <p class="role">Soy Natalí Elisei, alias "Tora". Atleta de alto rendimiento de SUP residente en Rosario y seleccionada nacional de Stand Up Paddle. Tri campeona argentina FAC 2026. Mi carrera se caracteriza por la constancia, la disciplina y una sólida formación integral como estudiante avanzada del profesorado de Educación Física e instructora de la disciplina.</p>
-        <!-- TEXTO: portada · botones -->
-        <div class="hero-cta">
-          <a class="btn btn-solid" href="https://wa.link/lk04uq" target="_blank" rel="noopener noreferrer">Contacta conmigo</a>
-          <a class="btn btn-outline" href="#simulador">Probá tu marca en la tabla ↗</a>
-        </div>
-      </div>
-      <div class="hero-media">
-        <img src="assets/hero-natali.webp" alt="Natalí Elisei remando en aguas abiertas" width="1280" height="720" decoding="async" fetchpriority="high" loading="eager">
+    <div class="hero-copy">
+      <!-- TEXTO: portada · titulo y presentacion -->
+      <span class="eyebrow">Atleta elite · Stand Up Paddle</span>
+      <h1 style="margin-top:10px;"><span class="fill">Natalí</span><span class="outline">Elisei</span></h1>
+      <p class="role">Soy Natalí Elisei, alias "Tora". Atleta de alto rendimiento de SUP residente en Rosario y seleccionada nacional de Stand Up Paddle. Tri campeona argentina FAC 2026. Mi carrera se caracteriza por la constancia, la disciplina y una sólida formación integral como estudiante avanzada del profesorado de Educación Física e instructora de la disciplina.</p>
+      <!-- TEXTO: portada · botones -->
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="https://wa.link/lk04uq" target="_blank" rel="noopener noreferrer">Contacta conmigo</a>
+        <a class="btn btn-outline" href="#simulador">Probá tu marca en la tabla ↗</a>
       </div>
     </div>
   </div>
@@ -572,20 +578,52 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
            el texto del renglon = el logro del año, que va al lado del año grande -->
       <div class="years" id="years" data-desde="2018">
         <ol class="years-list">
-          <li data-anio="2018" data-foto="assets/image-c72dc7a006a9.webp" data-pie="Primera regata en el Paraná">Debut en el SUP · Villa Constitución</li>
-          <li data-anio="2019" data-foto="assets/image-5d95790c9a0a.webp" data-pie="Entrenamiento en Villa Constitución">Primeras competencias federadas</li>
-          <li data-anio="2020" data-foto="assets/image-14430033f8f5.webp" data-pie="Preparación fuera del agua">Año de entrenamiento y preparación</li>
-          <li data-anio="2021" data-foto="assets/image-d312193a86ae.webp" data-pie="Regreso a las regatas nacionales">Vuelta a la competencia</li>
-          <li data-anio="2022" data-foto="assets/image-43aeb792f91f.webp" data-pie="Largada en Ilhabela, Brasil">Top 5 categoría Elite · Aloha Spirit, Brasil</li>
-          <li data-anio="2023" data-foto="assets/image-3639b52c46cf.webp" data-pie="Segunda edición del Aloha Spirit">Top 5 categoría Elite · Aloha Spirit, Brasil</li>
-          <li data-anio="2024" data-foto="assets/image-3a51c85498c0.webp" data-pie="Tabla de carrera en el Mundial">16° del mundo en Técnico · Mundial ICF, Sarasota</li>
-          <li data-anio="2025" data-foto="assets/image-3ee45f90328b.webp" data-pie="Maratón oceánica en El Salvador">17° del mundo en Maratón · Jucuarán, El Salvador</li>
-          <li data-anio="2026" data-foto="assets/image-ec2e88d8c2de.webp" data-pie="1° puesto, Copa Nacional FAC">Triple Campeona Argentina · Quequén</li>
+          <li data-anio="2018" data-foto="assets/anio-2018.webp">Debut en el SUP · Villa Constitución</li>
+          <li data-anio="2019" data-foto="assets/anio-2019.webp"></li>
+          <li data-anio="2020" data-foto="assets/anio-2020.webp"></li>
+          <li data-anio="2021" data-foto="assets/anio-2021.webp"></li>
+          <li data-anio="2022" data-foto="assets/anio-2022.webp">Top 5 categoría Elite · Aloha Spirit, Brasil</li>
+          <li data-anio="2023" data-foto="assets/anio-2023.webp">Top 5 categoría Elite · Aloha Spirit, Brasil</li>
+          <li data-anio="2024" data-foto="assets/anio-2024.webp">16° del mundo en Técnico · Mundial ICF, Sarasota</li>
+          <li data-anio="2025" data-foto="assets/anio-2025.webp" data-pie="Mundial ISA · El Salvador">17° del mundo en Maratón · Jucuarán, El Salvador</li>
+          <li data-anio="2026" data-foto="assets/anio-2026.webp" data-pie="Campeona Argentina FAC 2026">Triple Campeona Argentina · Quequén</li>
         </ol>
       </div>
     </div>
   </div>
 </div>
+
+<section class="voces" id="testimonios" aria-labelledby="voces-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">Testimonios</span>
+        <h2 id="voces-h">Lo que dicen de ella</h2>
+      </div>
+      <p class="voces-lede">Entrenadores, compañeras de selección y alumnos de la escuela donde enseña.</p>
+    </div>
+
+    <p class="voces-demo reveal"><b>Textos de ejemplo</b> Los testimonios de abajo están inventados para mostrar el diseño. Reemplazalos por los reales antes de enviar el dossier.</p>
+
+    <!-- TEXTO: testimonios · cada bloque es una persona (frase, nombre y rol) -->
+    <div class="voces-grid">
+      <figure class="voz reveal">
+        <blockquote>Entrena con una constancia que no se ve seguido. Llega antes que todos y se queda repasando la técnica cuando ya no queda nadie en el agua.</blockquote>
+        <figcaption><span class="voz-ini" aria-hidden="true">MG</span><span><strong>Martín Gómez</strong><em>Entrenador · Selección Argentina de SUP</em></span></figcaption>
+      </figure>
+
+      <figure class="voz reveal">
+        <blockquote>Compartimos varias competencias internacionales y siempre está pendiente del resto del equipo. Empuja al grupo, no solo a ella.</blockquote>
+        <figcaption><span class="voz-ini" aria-hidden="true">CR</span><span><strong>Carolina Ruiz</strong><em>Compañera de Selección</em></span></figcaption>
+      </figure>
+
+      <figure class="voz reveal">
+        <blockquote>Empecé sin saber pararme en la tabla. Me explicó cada movimiento con una paciencia enorme y a los seis meses estaba corriendo mi primera regata.</blockquote>
+        <figcaption><span class="voz-ini" aria-hidden="true">JP</span><span><strong>Julián Paz</strong><em>Alumno de la escuela</em></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 
 <main class="wrap">
   <section class="offer" aria-labelledby="offer-h">
@@ -625,12 +663,12 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
 
   .season-demo{
     display:flex; align-items:center; flex-wrap:wrap; gap:12px;
-    border:1px dashed var(--coral); border-radius:12px; padding:13px 18px; margin-bottom:30px;
+    border:1px dashed #F6B40E; border-radius:12px; padding:13px 18px; margin-bottom:30px;
     font-size:0.86rem; line-height:1.5; color:var(--ink-soft);
   }
   .season-demo b{
     font-family:var(--font-mono); font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase;
-    background:var(--coral); color:var(--on-coral); padding:5px 11px; border-radius:100px; white-space:nowrap;
+    background:#F6B40E; color:#0B2545; padding:5px 11px; border-radius:100px; white-space:nowrap;
   }
 
   .season-stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:36px; }
@@ -1142,6 +1180,133 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
 </script>
 <style>
   .hero{ height:auto; min-height:0; max-height:none; padding:calc(74px + clamp(20px,3vw,34px)) 0 clamp(44px,6vw,76px); overflow:visible; }
+
+  /* portada inmersiva: la foto ocupa toda la pantalla */
+  .hero-full{position:relative;min-height:100svh;padding:0;overflow:hidden;background:#07182c}
+  .hero-full .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-full .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:22% 45%;display:block}
+  /* la animacion heredada del hero anterior pisaba el encuadre */
+  .hero-full .hero-bg img{animation:none}
+  /* en pantalla ancha entra toda la foto y sobra agua vacia: se cierra el encuadre */
+  /* testimonios */
+  .voces{background:var(--surface-2)}
+  .voces .eyebrow{color:#1a6099}
+  .voces .section-head{align-items:flex-end;margin-bottom:28px}
+  .voces-lede{font-size:1rem;line-height:1.6;color:var(--ink-soft);max-width:40ch}
+  .voces-demo{
+    display:flex;align-items:center;flex-wrap:wrap;gap:12px;
+    border:1px dashed #F6B40E;border-radius:12px;padding:13px 18px;margin-bottom:30px;
+    font-size:0.86rem;line-height:1.5;color:var(--ink-soft);
+  }
+  .voces-demo b{
+    font-family:var(--font-mono);font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;
+    background:#F6B40E;color:#0B2545;padding:5px 11px;border-radius:100px;white-space:nowrap;
+  }
+  .voces-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+  .voz{
+    margin:0;background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    padding:26px 24px 22px;display:flex;flex-direction:column;gap:20px;height:100%;
+  }
+  .voz blockquote{
+    margin:0;font-size:1.02rem;line-height:1.6;color:var(--ink);position:relative;padding-top:22px;
+  }
+  .voz blockquote::before{
+    content:"“";position:absolute;top:-14px;left:-4px;font-family:var(--font-display);
+    font-size:4rem;line-height:1;color:var(--cyan);opacity:0.55;
+  }
+  .voz figcaption{display:flex;align-items:center;gap:13px;margin-top:auto}
+  .voz-ini{
+    flex-shrink:0;width:42px;height:42px;border-radius:50%;background:var(--cyan-soft);color:#12406b;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-body);font-weight:800;font-size:0.84rem;letter-spacing:0.02em;
+  }
+  .voz figcaption strong{display:block;font-size:0.96rem;font-weight:800;color:var(--ink)}
+  .voz figcaption em{
+    display:block;font-style:normal;font-family:var(--font-mono);font-size:0.7rem;
+    letter-spacing:0.04em;color:var(--ink-soft);margin-top:3px;line-height:1.45;
+  }
+  @media (max-width:900px){
+    .voces-grid{grid-template-columns:1fr;gap:14px}
+    .voces-lede{max-width:none}
+  }
+  /* menu desplegable: en celular se ocultaban 6 de los 8 links */
+  .subnav-boton{display:none}
+  @media (max-width:700px){
+    .subnav{flex-wrap:wrap;align-items:center;gap:6px}
+    .subnav .brand{margin-right:auto}
+    .subnav nav{display:flex;gap:14px}
+    .subnav nav a{display:none}
+    .subnav nav a[href="#partners"]{display:none}
+    .subnav nav a[href="#simulador"]{display:block;font-size:13px}
+    .subnav-boton{
+      display:flex;order:4;flex-direction:column;justify-content:center;gap:5px;
+      width:44px;height:44px;padding:0 10px;background:none;border:0;cursor:pointer;
+    }
+    .subnav-boton span{display:block;height:2px;width:100%;background:#fff;border-radius:2px;transition:transform .2s ease,opacity .2s ease}
+    .subnav.menu-abierto .subnav-boton span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .subnav.menu-abierto .subnav-boton span:nth-child(2){opacity:0}
+    .subnav.menu-abierto .subnav-boton span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .subnav.menu-abierto nav{
+      display:flex;flex-direction:column;gap:0;width:100%;order:3;
+      margin-top:12px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.14);
+    }
+    .subnav.menu-abierto nav a{
+      display:block;padding:14px 2px;font-size:15px;letter-spacing:0.02em;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+    .subnav.menu-abierto nav a:last-child{border-bottom:0}
+    /* la foto del podio es vertical: en un marco 16:10 perdia mas de la mitad */
+    .commit-photo{aspect-ratio:3/4}
+    /* textos que quedaban por debajo del minimo legible en pantalla chica */
+    .hero-full .hero-top span{font-size:11px}
+    .season-stat .label,.season-when .year,.season-flags span,.voz figcaption em{font-size:11px}
+  }
+
+  /* con el link de testimonios el menu roza la marca en pantallas medianas */
+  @media (min-width:701px) and (max-width:1200px){
+    .subnav nav{gap:15px}
+    .subnav a{font-size:13px}
+  }
+  @media (min-width:701px) and (max-width:1050px){
+    .subnav{padding-inline:22px}
+    .subnav nav{gap:12px}
+    .subnav .brand{font-size:1.05rem}
+  }
+
+  /* en pantalla angosta el titulo y su bajada no entran lado a lado */
+  @media (max-width:700px){
+    .voces .section-head,.season .section-head{flex-direction:column;align-items:flex-start;gap:12px}
+  }
+
+  /* la linea de arriba traia su propio margen y no alineaba con el titulo */
+  .hero-full .hero-top{padding-left:0;padding-right:0}
+  @media (min-width:1000px){
+    .hero-full .hero-bg img{transform:scale(1.28);transform-origin:42% 48%}
+  }
+  @media (min-width:1000px) and (min-aspect-ratio:16/10){
+    .hero-full .hero-bg img{transform:scale(1.5);transform-origin:40% 46%}
+  }
+  .hero-full .hero-bg::after{content:"";position:absolute;inset:0;background:
+    linear-gradient(to right, rgba(7,24,44,0.9) 0%, rgba(7,24,44,0.6) 32%, rgba(7,24,44,0) 62%),
+    linear-gradient(to top, rgba(7,24,44,0.8) 0%, rgba(7,24,44,0.25) 28%, rgba(7,24,44,0) 55%),
+    linear-gradient(to bottom, rgba(7,24,44,0.5) 0%, rgba(7,24,44,0) 20%)}
+  .hero-full .hero-inner{position:relative;z-index:2;min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding-top:calc(74px + clamp(18px,2.5vw,30px));padding-bottom:clamp(40px,6vw,70px)}
+  .hero-full .hero-copy{max-width:38ch;margin-top:auto}
+  .hero-full .hero-top{color:#cfe0ec}
+  @media (max-width:900px){
+    .hero-full .hero-bg img{object-position:34% 40%}
+    .hero-full .hero-bg::after{background:
+      linear-gradient(to top, rgba(7,24,44,0.75) 0%, rgba(7,24,44,0.15) 45%, rgba(7,24,44,0) 68%),
+      linear-gradient(to bottom, rgba(7,24,44,0.6) 0%, rgba(7,24,44,0) 22%)}
+    /* el parrafo es largo: sobre foto necesita fondo propio para leerse */
+    .hero-full .hero-copy{
+      max-width:none;
+      background:linear-gradient(to top, rgba(7,24,44,0.97) 60%, rgba(7,24,44,0.86));
+      border-radius:16px;
+      padding:22px 20px 24px;
+      margin-inline:-4px;
+    }
+  }
   .hero-inner{ height:auto; justify-content:flex-start; padding-top:0; padding-bottom:0; gap:clamp(26px,4vw,44px); }
   .hero-top{ position:static; top:auto; bottom:auto; display:flex; justify-content:space-between; gap:16px; }
   .hero-top span:first-child{ max-width:none; }
@@ -1190,6 +1355,24 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
     .years-ticks{font-size:0.6rem}
   }
 </style>
+<script>
+(function(){
+  var barra = document.getElementById('subnav'), boton = document.getElementById('subnavBoton');
+  if(!barra || !boton) return;
+  function cerrar(){
+    barra.classList.remove('menu-abierto');
+    boton.setAttribute('aria-expanded', 'false');
+    boton.setAttribute('aria-label', 'Abrir menú');
+  }
+  boton.addEventListener('click', function(){
+    var abierto = barra.classList.toggle('menu-abierto');
+    boton.setAttribute('aria-expanded', String(abierto));
+    boton.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+  });
+  barra.querySelectorAll('nav a').forEach(function(a){ a.addEventListener('click', cerrar); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') cerrar(); });
+})();
+</script>
 <script>
 (function(){
   var caja = document.getElementById('years');
