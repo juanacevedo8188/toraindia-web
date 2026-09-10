@@ -549,11 +549,6 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
         <h3 style="font-family:var(--font-body); font-weight:800; text-transform:none;">Maratón</h3>
         <p>Fondo en aguas abiertas y oceánicas.</p>
       </div>
-      <div class="disc-card tilt">
-        <div class="disc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 3 7l9 4 9-4-9-4Z"/><path d="M7 9.5V15c0 1.7 2.2 3 5 3s5-1.3 5-3V9.5"/></svg></div>
-        <h3 style="font-family:var(--font-body); font-weight:800; text-transform:none;">Formación</h3>
-        <p>Instructora activa. Formó parte de dos de las escuelas de SUP más prestigiosas de Argentina.</p>
-      </div>
     </div>
   </section>
 </main>
@@ -572,9 +567,7 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
       <h2 style="margin-top:10px; margin-bottom:20px; font-size:2.2rem; font-family:var(--font-body); font-weight:800; text-transform:none;">Más que competir</h2>
       <p>Atleta de alto rendimiento con trayectoria ininterrumpida en el SUP desde 2018. Su compromiso con el deporte trasciende la competencia: se desempeñó como organizadora de eventos y copas, trabajando activamente en el fortalecimiento del semillero nacional. Forma parte, hasta la actualidad, de una de las escuelas de formación más prestigiosas de Argentina, donde se dedica a la enseñanza técnica y al acompañamiento de nuevos atletas.</p>
       <div class="commit-grid tabular">
-        <div class="commit-tile"><span class="num" data-count="8">8</span><span class="label">Años de trayectoria</span></div>
-        <div class="commit-tile"><span class="num" data-count="3">3</span><span class="label">Escuelas de formación</span></div>
-        <div class="commit-tile"><span class="num">3/3</span><span class="label">Disciplinas que lidera</span></div>
+        <div class="commit-tile commit-solo"><span class="num" data-count="8">8</span><span class="label">Años de trayectoria</span></div>
       </div>
     </div>
   </div>
@@ -1157,5 +1150,18 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
   .btn-solid:hover,.lab button.primary:hover,.lab-v2 .primary:hover,.contact-list a.btn-solid:hover{background:#FFC93F;color:#0B2545;border-color:#FFC93F}
   .bio-facts dt,.season-stat .num,.season-stat:nth-child(even) .num,.season-goal{color:#1d6fb8}
   .offer li .mk{-webkit-text-stroke-color:#1d6fb8}
+
+  /* tres disciplinas en lugar de cuatro */
+  .disciplines{grid-template-columns:repeat(3,1fr)}
+
+  /* el dato de trayectoria quedo solo: se muestra como cifra destacada */
+  .commit-grid{grid-template-columns:minmax(0,1fr);margin-top:34px}
+  .commit-solo{display:flex;align-items:center;gap:24px;border:0;border-left:3px solid var(--cyan);border-radius:0;padding:10px 0 10px 26px;background:transparent}
+  .commit-solo .num{font-size:clamp(3.6rem,7vw,5.2rem);line-height:0.86}
+  .commit-solo .label{margin-top:0;font-size:0.8rem;letter-spacing:0.09em;line-height:1.5;max-width:14ch}
+  @media (max-width:700px){
+    .disciplines{grid-template-columns:1fr}
+    .commit-solo{gap:18px;padding-left:20px}
+  }
 </style>
 </body></html>
