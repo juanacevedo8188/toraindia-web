@@ -1338,14 +1338,46 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
   .years-list{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:0.9rem;color:#d9e5ea}
   .years-list li::before{content:attr(data-anio) " · ";font-family:var(--font-mono);color:var(--cyan)}
   .years.is-ready .years-list{display:none}
-  #commitFoto{transition:opacity 0.3s ease}
-  @media (prefers-reduced-motion: reduce){ #commitFoto{transition:none} }
+  #commitFoto{transition:opacity 0.42s ease, transform 0.42s ease}
+  #commitFoto.cambiando{opacity:0;transform:scale(1.02)}
+  @media (prefers-reduced-motion: reduce){ #commitFoto{transition:none} #commitFoto.cambiando{opacity:1;transform:none} }
   .years-cap{display:flex;align-items:baseline;gap:14px;margin-top:4px;min-height:44px}
-  .years-cap b{font-family:var(--font-display);font-size:2.4rem;line-height:1;color:var(--cyan)}
+  .years-cap b{font-family:var(--font-display);font-size:2.4rem;line-height:1;color:var(--cyan);transition:color 0.2s ease}
   .years-cap span{font-size:0.92rem;line-height:1.45;color:#d9e5ea}
-  .years-range{width:100%;margin:16px 0 6px;accent-color:var(--cyan)}
-  .years-ticks{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:0.66rem;color:#9db6c6}
-  .years-ticks button{background:none;border:0;padding:4px 2px;color:inherit;font:inherit;cursor:pointer;min-height:0}
+
+  /* deslizador con diseño propio: el nativo se sentia tosco */
+  .years-range{
+    -webkit-appearance:none;appearance:none;width:100%;height:28px;margin:14px 0 2px;
+    background:transparent;cursor:pointer;
+  }
+  .years-range:focus{outline:none}
+  .years-range::-webkit-slider-runnable-track{
+    height:6px;border-radius:99px;
+    background:linear-gradient(to right,var(--cyan) 0 calc(var(--avance,1) * 100%),rgba(255,255,255,0.18) calc(var(--avance,1) * 100%) 100%);
+  }
+  .years-range::-webkit-slider-thumb{
+    -webkit-appearance:none;appearance:none;width:22px;height:22px;margin-top:-8px;border-radius:50%;
+    background:var(--cyan);border:3px solid #0b2038;
+    box-shadow:0 0 0 1px var(--cyan),0 4px 12px rgba(0,0,0,0.38);
+    transition:transform 0.18s ease,box-shadow 0.18s ease;
+  }
+  .years-range:hover::-webkit-slider-thumb{transform:scale(1.14)}
+  .years-range:active::-webkit-slider-thumb{transform:scale(1.22)}
+  .years-range:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 1px var(--cyan),0 0 0 6px rgba(116,172,223,0.35)}
+  .years-range::-moz-range-track{height:6px;border-radius:99px;background:rgba(255,255,255,0.18)}
+  .years-range::-moz-range-progress{height:6px;border-radius:99px;background:var(--cyan)}
+  .years-range::-moz-range-thumb{
+    width:22px;height:22px;border-radius:50%;background:var(--cyan);border:3px solid #0b2038;
+    box-shadow:0 4px 12px rgba(0,0,0,0.38);transition:transform 0.18s ease;
+  }
+  .years-range:active::-moz-range-thumb{transform:scale(1.22)}
+
+  .years-ticks{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:0.66rem;color:#8ea9bb}
+  .years-ticks button{
+    background:none;border:0;padding:7px 4px;color:inherit;font:inherit;cursor:pointer;min-height:0;
+    border-radius:6px;transition:color 0.18s ease,background 0.18s ease;
+  }
+  .years-ticks button:hover{color:#e6eef3;background:rgba(255,255,255,0.07)}
   .years-ticks button[aria-current=true]{color:var(--cyan);font-weight:700}
   .years-total{display:flex;align-items:center;gap:16px;margin-top:18px;border-left:3px solid var(--cyan);padding-left:22px}
   .years-total b{font-family:var(--font-display);font-size:clamp(2.6rem,5vw,3.6rem);line-height:0.86;color:var(--cyan)}
@@ -1417,14 +1449,20 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
 
   function pinta(){
     var i = +rango.value, d = datos[i];
+    rango.style.setProperty('--avance', (rango.max > 0 ? i / rango.max : 1).toFixed(4));
     if(d.foto && foto && foto.getAttribute('src') !== d.foto){
       var previa = new Image();
       previa.onload = function(){
         foto.src = d.foto;
         foto.alt = 'Natalí Elisei en ' + d.anio;
-        foto.style.opacity = '';
+        var mostrar = function(){ foto.classList.remove('cambiando'); };
+        // rAF no corre con la pestaña en segundo plano: el respaldo evita que quede invisible
+        requestAnimationFrame(mostrar);
+        setTimeout(mostrar, 120);
       };
-      if(suave) foto.style.opacity = '0.3';
+      // sin esto, una foto que no carga deja el marco vacio
+      previa.onerror = function(){ foto.classList.remove('cambiando'); };
+      if(suave) foto.classList.add('cambiando');
       previa.src = d.foto;
     }
     if(fotoCap) fotoCap.textContent = d.pie || d.nota || d.anio;
