@@ -557,8 +557,8 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
   <div class="wrap commit-layout">
     <div class="sticker reveal">
       <div class="photo-card tilt commit-photo">
-        <img src="assets/image-ec2e88d8c2de.webp" alt="Natalí Elisei en el primer puesto del podio nacional" width="825" height="1100" decoding="async" loading="lazy">
-        <span class="cap">1° puesto, Copa Nacional FAC</span>
+        <img id="commitFoto" src="assets/image-ec2e88d8c2de.webp" alt="Natalí Elisei en el primer puesto del podio nacional" width="825" height="1100" decoding="async" loading="lazy">
+        <span class="cap" id="commitCap">1° puesto, Copa Nacional FAC</span>
       </div>
     </div>
     <div class="commit-text reveal">
@@ -569,15 +569,15 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
       <!-- TEXTO: compromiso · trayectoria año por año (data-foto: archivo de assets, texto: el logro) -->
       <div class="years" id="years" data-desde="2018">
         <ol class="years-list">
-          <li data-anio="2018" data-foto="">Debut en el SUP · Villa Constitución</li>
-          <li data-anio="2019" data-foto=""></li>
-          <li data-anio="2020" data-foto=""></li>
-          <li data-anio="2021" data-foto=""></li>
-          <li data-anio="2022" data-foto="">Top 5 categoría Elite · Aloha Spirit, Brasil</li>
-          <li data-anio="2023" data-foto="">Top 5 categoría Elite · Aloha Spirit, Brasil</li>
-          <li data-anio="2024" data-foto="">16° del mundo en Técnico · Mundial ICF, Sarasota</li>
-          <li data-anio="2025" data-foto="">17° del mundo en Maratón · Jucuarán, El Salvador</li>
-          <li data-anio="2026" data-foto="">Triple Campeona Argentina · Quequén</li>
+          <li data-anio="2018" data-foto="assets/image-c72dc7a006a9.webp">Debut en el SUP · Villa Constitución</li>
+          <li data-anio="2019" data-foto="assets/image-5d95790c9a0a.webp">Primeras competencias federadas</li>
+          <li data-anio="2020" data-foto="assets/image-14430033f8f5.webp">Año de entrenamiento y preparación</li>
+          <li data-anio="2021" data-foto="assets/image-d312193a86ae.webp">Vuelta a la competencia</li>
+          <li data-anio="2022" data-foto="assets/image-43aeb792f91f.webp">Top 5 categoría Elite · Aloha Spirit, Brasil</li>
+          <li data-anio="2023" data-foto="assets/image-3639b52c46cf.webp">Top 5 categoría Elite · Aloha Spirit, Brasil</li>
+          <li data-anio="2024" data-foto="assets/image-3a51c85498c0.webp">16° del mundo en Técnico · Mundial ICF, Sarasota</li>
+          <li data-anio="2025" data-foto="assets/image-3ee45f90328b.webp">17° del mundo en Maratón · Jucuarán, El Salvador</li>
+          <li data-anio="2026" data-foto="assets/image-ec2e88d8c2de.webp">Triple Campeona Argentina · Quequén</li>
         </ol>
       </div>
     </div>
@@ -1170,12 +1170,9 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
   .years-list{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:0.9rem;color:#d9e5ea}
   .years-list li::before{content:attr(data-anio) " · ";font-family:var(--font-mono);color:var(--cyan)}
   .years.is-ready .years-list{display:none}
-  .years-shot{margin:0;position:relative;border-radius:14px;overflow:hidden;background:#0b2038;aspect-ratio:16/10}
-  .years-shot img{width:100%;height:100%;object-fit:cover;display:block}
-  .years-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:20px;background:linear-gradient(160deg,#123a63,#0b2038)}
-  .years-empty b{font-family:var(--font-display);font-size:clamp(2.6rem,7vw,4rem);line-height:1;color:var(--cyan)}
-  .years-empty span{font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:#9db6c6}
-  .years-cap{display:flex;align-items:baseline;gap:14px;margin-top:14px;min-height:44px}
+  #commitFoto{transition:opacity 0.3s ease}
+  @media (prefers-reduced-motion: reduce){ #commitFoto{transition:none} }
+  .years-cap{display:flex;align-items:baseline;gap:14px;margin-top:4px;min-height:44px}
   .years-cap b{font-family:var(--font-display);font-size:2.4rem;line-height:1;color:var(--cyan)}
   .years-cap span{font-size:0.92rem;line-height:1.45;color:#d9e5ea}
   .years-range{width:100%;margin:16px 0 6px;accent-color:var(--cyan)}
@@ -1199,19 +1196,19 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
   });
   if(!datos.length) return;
 
+  var foto = document.getElementById('commitFoto'),
+      fotoCap = document.getElementById('commitCap'),
+      suave = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   var ui = document.createElement('div');
   ui.innerHTML =
-    '<figure class="years-shot"><img alt="" hidden><div class="years-empty"><b></b><span>Foto pendiente</span></div></figure>' +
     '<div class="years-cap"><b></b><span></span></div>' +
     '<input class="years-range" type="range" min="0" step="1" aria-label="Elegí un año de la trayectoria">' +
     '<div class="years-ticks"></div>' +
     '<div class="years-total"><b>' + (datos[datos.length - 1].anio - datos[0].anio) + '</b><span>Años de trayectoria</span></div>';
   caja.appendChild(ui);
 
-  var img = ui.querySelector('img'),
-      vacio = ui.querySelector('.years-empty'),
-      vacioAnio = vacio.querySelector('b'),
-      capAnio = ui.querySelector('.years-cap b'),
+  var capAnio = ui.querySelector('.years-cap b'),
       capNota = ui.querySelector('.years-cap span'),
       rango = ui.querySelector('.years-range'),
       ticks = ui.querySelector('.years-ticks');
@@ -1229,16 +1226,17 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
 
   function pinta(){
     var i = +rango.value, d = datos[i];
-    if(d.foto){
-      img.src = d.foto;
-      img.alt = 'Natalí Elisei en ' + d.anio;
-      img.hidden = false;
-      vacio.hidden = true;
-    } else {
-      img.hidden = true;
-      vacio.hidden = false;
-      vacioAnio.textContent = d.anio;
+    if(d.foto && foto && foto.getAttribute('src') !== d.foto){
+      var previa = new Image();
+      previa.onload = function(){
+        foto.src = d.foto;
+        foto.alt = 'Natalí Elisei en ' + d.anio;
+        foto.style.opacity = '';
+      };
+      if(suave) foto.style.opacity = '0.3';
+      previa.src = d.foto;
     }
+    if(fotoCap) fotoCap.textContent = d.nota || d.anio;
     capAnio.textContent = d.anio;
     capNota.textContent = d.nota;
     [].forEach.call(ticks.children, function(b, j){ b.setAttribute('aria-current', String(j === i)); });
