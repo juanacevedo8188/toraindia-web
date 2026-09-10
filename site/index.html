@@ -566,8 +566,19 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
       <span class="eyebrow">Compromiso y desarrollo</span>
       <h2 style="margin-top:10px; margin-bottom:20px; font-size:2.2rem; font-family:var(--font-body); font-weight:800; text-transform:none;">Más que competir</h2>
       <p>Atleta de alto rendimiento con trayectoria ininterrumpida en el SUP desde 2018. Su compromiso con el deporte trasciende la competencia: se desempeñó como organizadora de eventos y copas, trabajando activamente en el fortalecimiento del semillero nacional. Forma parte, hasta la actualidad, de una de las escuelas de formación más prestigiosas de Argentina, donde se dedica a la enseñanza técnica y al acompañamiento de nuevos atletas.</p>
-      <div class="commit-grid tabular">
-        <div class="commit-tile commit-solo"><span class="num" data-count="8">8</span><span class="label">Años de trayectoria</span></div>
+      <!-- TEXTO: compromiso · trayectoria año por año (data-foto: archivo de assets, texto: el logro) -->
+      <div class="years" id="years" data-desde="2018">
+        <ol class="years-list">
+          <li data-anio="2018" data-foto="">Debut en el SUP · Villa Constitución</li>
+          <li data-anio="2019" data-foto=""></li>
+          <li data-anio="2020" data-foto=""></li>
+          <li data-anio="2021" data-foto=""></li>
+          <li data-anio="2022" data-foto="">Top 5 categoría Elite · Aloha Spirit, Brasil</li>
+          <li data-anio="2023" data-foto="">Top 5 categoría Elite · Aloha Spirit, Brasil</li>
+          <li data-anio="2024" data-foto="">16° del mundo en Técnico · Mundial ICF, Sarasota</li>
+          <li data-anio="2025" data-foto="">17° del mundo en Maratón · Jucuarán, El Salvador</li>
+          <li data-anio="2026" data-foto="">Triple Campeona Argentina · Quequén</li>
+        </ol>
       </div>
     </div>
   </div>
@@ -1154,14 +1165,88 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
   /* tres disciplinas en lugar de cuatro */
   .disciplines{grid-template-columns:repeat(3,1fr)}
 
-  /* el dato de trayectoria quedo solo: se muestra como cifra destacada */
-  .commit-grid{grid-template-columns:minmax(0,1fr);margin-top:34px}
-  .commit-solo{display:flex;align-items:center;gap:24px;border:0;border-left:3px solid var(--cyan);border-radius:0;padding:10px 0 10px 26px;background:transparent}
-  .commit-solo .num{font-size:clamp(3.6rem,7vw,5.2rem);line-height:0.86}
-  .commit-solo .label{margin-top:0;font-size:0.8rem;letter-spacing:0.09em;line-height:1.5;max-width:14ch}
+  /* trayectoria año por año: deslizador con la foto de cada año */
+  .years{margin-top:34px}
+  .years-list{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:0.9rem;color:#d9e5ea}
+  .years-list li::before{content:attr(data-anio) " · ";font-family:var(--font-mono);color:var(--cyan)}
+  .years.is-ready .years-list{display:none}
+  .years-shot{margin:0;position:relative;border-radius:14px;overflow:hidden;background:#0b2038;aspect-ratio:16/10}
+  .years-shot img{width:100%;height:100%;object-fit:cover;display:block}
+  .years-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:20px;background:linear-gradient(160deg,#123a63,#0b2038)}
+  .years-empty b{font-family:var(--font-display);font-size:clamp(2.6rem,7vw,4rem);line-height:1;color:var(--cyan)}
+  .years-empty span{font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:#9db6c6}
+  .years-cap{display:flex;align-items:baseline;gap:14px;margin-top:14px;min-height:44px}
+  .years-cap b{font-family:var(--font-display);font-size:2.4rem;line-height:1;color:var(--cyan)}
+  .years-cap span{font-size:0.92rem;line-height:1.45;color:#d9e5ea}
+  .years-range{width:100%;margin:16px 0 6px;accent-color:var(--cyan)}
+  .years-ticks{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:0.66rem;color:#9db6c6}
+  .years-ticks button{background:none;border:0;padding:4px 2px;color:inherit;font:inherit;cursor:pointer;min-height:0}
+  .years-ticks button[aria-current=true]{color:var(--cyan);font-weight:700}
+  .years-total{display:flex;align-items:center;gap:16px;margin-top:18px;border-left:3px solid var(--cyan);padding-left:22px}
+  .years-total b{font-family:var(--font-display);font-size:clamp(2.6rem,5vw,3.6rem);line-height:0.86;color:var(--cyan)}
+  .years-total span{font-family:var(--font-mono);font-size:0.76rem;letter-spacing:0.09em;text-transform:uppercase;color:#d9e5ea;line-height:1.5;max-width:14ch}
   @media (max-width:700px){
     .disciplines{grid-template-columns:1fr}
-    .commit-solo{gap:18px;padding-left:20px}
+    .years-ticks{font-size:0.6rem}
   }
 </style>
+<script>
+(function(){
+  var caja = document.getElementById('years');
+  if(!caja) return;
+  var datos = [].map.call(caja.querySelectorAll('.years-list li'), function(li){
+    return { anio: li.getAttribute('data-anio'), foto: li.getAttribute('data-foto') || '', nota: li.textContent.trim() };
+  });
+  if(!datos.length) return;
+
+  var ui = document.createElement('div');
+  ui.innerHTML =
+    '<figure class="years-shot"><img alt="" hidden><div class="years-empty"><b></b><span>Foto pendiente</span></div></figure>' +
+    '<div class="years-cap"><b></b><span></span></div>' +
+    '<input class="years-range" type="range" min="0" step="1" aria-label="Elegí un año de la trayectoria">' +
+    '<div class="years-ticks"></div>' +
+    '<div class="years-total"><b>' + (datos[datos.length - 1].anio - datos[0].anio) + '</b><span>Años de trayectoria</span></div>';
+  caja.appendChild(ui);
+
+  var img = ui.querySelector('img'),
+      vacio = ui.querySelector('.years-empty'),
+      vacioAnio = vacio.querySelector('b'),
+      capAnio = ui.querySelector('.years-cap b'),
+      capNota = ui.querySelector('.years-cap span'),
+      rango = ui.querySelector('.years-range'),
+      ticks = ui.querySelector('.years-ticks');
+
+  rango.max = datos.length - 1;
+  rango.value = datos.length - 1;
+
+  datos.forEach(function(d, i){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = d.anio;
+    b.addEventListener('click', function(){ rango.value = i; pinta(); });
+    ticks.appendChild(b);
+  });
+
+  function pinta(){
+    var i = +rango.value, d = datos[i];
+    if(d.foto){
+      img.src = d.foto;
+      img.alt = 'Natalí Elisei en ' + d.anio;
+      img.hidden = false;
+      vacio.hidden = true;
+    } else {
+      img.hidden = true;
+      vacio.hidden = false;
+      vacioAnio.textContent = d.anio;
+    }
+    capAnio.textContent = d.anio;
+    capNota.textContent = d.nota;
+    [].forEach.call(ticks.children, function(b, j){ b.setAttribute('aria-current', String(j === i)); });
+  }
+
+  rango.addEventListener('input', pinta);
+  caja.classList.add('is-ready');
+  pinta();
+})();
+</script>
 </body></html>
