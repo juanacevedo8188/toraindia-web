@@ -574,6 +574,38 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
   </div>
 </div>
 
+<section class="voces" id="testimonios" aria-labelledby="voces-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">Testimonios</span>
+        <h2 id="voces-h">Lo que dicen de ella</h2>
+      </div>
+      <p class="voces-lede">Entrenadores, compañeras de selección y alumnos de la escuela donde enseña.</p>
+    </div>
+
+    <p class="voces-demo reveal"><b>Textos de ejemplo</b> Los testimonios de abajo están inventados para mostrar el diseño. Reemplazalos por los reales antes de enviar el dossier.</p>
+
+    <!-- TEXTO: testimonios · cada bloque es una persona (frase, nombre y rol) -->
+    <div class="voces-grid">
+      <figure class="voz reveal">
+        <blockquote>Entrena con una constancia que no se ve seguido. Llega antes que todos y se queda repasando la técnica cuando ya no queda nadie en el agua.</blockquote>
+        <figcaption><span class="voz-ini" aria-hidden="true">MG</span><span><strong>Martín Gómez</strong><em>Entrenador · Selección Argentina de SUP</em></span></figcaption>
+      </figure>
+
+      <figure class="voz reveal">
+        <blockquote>Compartimos varias competencias internacionales y siempre está pendiente del resto del equipo. Empuja al grupo, no solo a ella.</blockquote>
+        <figcaption><span class="voz-ini" aria-hidden="true">CR</span><span><strong>Carolina Ruiz</strong><em>Compañera de Selección</em></span></figcaption>
+      </figure>
+
+      <figure class="voz reveal">
+        <blockquote>Empecé sin saber pararme en la tabla. Me explicó cada movimiento con una paciencia enorme y a los seis meses estaba corriendo mi primera regata.</blockquote>
+        <figcaption><span class="voz-ini" aria-hidden="true">JP</span><span><strong>Julián Paz</strong><em>Alumno de la escuela</em></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <main class="wrap">
   <section class="offer" aria-labelledby="offer-h">
     <div class="reveal">
@@ -612,12 +644,12 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
 
   .season-demo{
     display:flex; align-items:center; flex-wrap:wrap; gap:12px;
-    border:1px dashed var(--coral); border-radius:12px; padding:13px 18px; margin-bottom:30px;
+    border:1px dashed #F6B40E; border-radius:12px; padding:13px 18px; margin-bottom:30px;
     font-size:0.86rem; line-height:1.5; color:var(--ink-soft);
   }
   .season-demo b{
     font-family:var(--font-mono); font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase;
-    background:var(--coral); color:var(--on-coral); padding:5px 11px; border-radius:100px; white-space:nowrap;
+    background:#F6B40E; color:#0B2545; padding:5px 11px; border-radius:100px; white-space:nowrap;
   }
 
   .season-stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:36px; }
@@ -1137,6 +1169,52 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
   /* la animacion heredada del hero anterior pisaba el encuadre */
   .hero-full .hero-bg img{animation:none}
   /* en pantalla ancha entra toda la foto y sobra agua vacia: se cierra el encuadre */
+  /* testimonios */
+  .voces{background:var(--surface-2)}
+  .voces .eyebrow{color:#1a6099}
+  .voces .section-head{align-items:flex-end;margin-bottom:28px}
+  .voces-lede{font-size:1rem;line-height:1.6;color:var(--ink-soft);max-width:40ch}
+  .voces-demo{
+    display:flex;align-items:center;flex-wrap:wrap;gap:12px;
+    border:1px dashed #F6B40E;border-radius:12px;padding:13px 18px;margin-bottom:30px;
+    font-size:0.86rem;line-height:1.5;color:var(--ink-soft);
+  }
+  .voces-demo b{
+    font-family:var(--font-mono);font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;
+    background:#F6B40E;color:#0B2545;padding:5px 11px;border-radius:100px;white-space:nowrap;
+  }
+  .voces-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+  .voz{
+    margin:0;background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    padding:26px 24px 22px;display:flex;flex-direction:column;gap:20px;height:100%;
+  }
+  .voz blockquote{
+    margin:0;font-size:1.02rem;line-height:1.6;color:var(--ink);position:relative;padding-top:22px;
+  }
+  .voz blockquote::before{
+    content:"“";position:absolute;top:-14px;left:-4px;font-family:var(--font-display);
+    font-size:4rem;line-height:1;color:var(--cyan);opacity:0.55;
+  }
+  .voz figcaption{display:flex;align-items:center;gap:13px;margin-top:auto}
+  .voz-ini{
+    flex-shrink:0;width:42px;height:42px;border-radius:50%;background:var(--cyan-soft);color:#12406b;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-body);font-weight:800;font-size:0.84rem;letter-spacing:0.02em;
+  }
+  .voz figcaption strong{display:block;font-size:0.96rem;font-weight:800;color:var(--ink)}
+  .voz figcaption em{
+    display:block;font-style:normal;font-family:var(--font-mono);font-size:0.7rem;
+    letter-spacing:0.04em;color:var(--ink-soft);margin-top:3px;line-height:1.45;
+  }
+  @media (max-width:900px){
+    .voces-grid{grid-template-columns:1fr;gap:14px}
+    .voces-lede{max-width:none}
+  }
+  /* en pantalla angosta el titulo y su bajada no entran lado a lado */
+  @media (max-width:700px){
+    .voces .section-head,.season .section-head{flex-direction:column;align-items:flex-start;gap:12px}
+  }
+
   /* la linea de arriba traia su propio margen y no alineaba con el titulo */
   .hero-full .hero-top{padding-left:0;padding-right:0}
   @media (min-width:1000px){
