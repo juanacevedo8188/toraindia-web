@@ -1205,7 +1205,7 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
     '<div class="years-cap"><b></b><span></span></div>' +
     '<input class="years-range" type="range" min="0" step="1" aria-label="Elegí un año de la trayectoria">' +
     '<div class="years-ticks"></div>' +
-    '<div class="years-total"><b>' + (datos[datos.length - 1].anio - datos[0].anio) + '</b><span>Años de trayectoria</span></div>';
+    '<div class="years-total"><b>' + datos.length + '</b><span>Años de trayectoria</span></div>';
   caja.appendChild(ui);
 
   var capAnio = ui.querySelector('.years-cap b'),
