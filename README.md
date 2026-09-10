@@ -50,6 +50,7 @@ Todos los bloques de texto están señalizados con un comentario `<!-- TEXTO: ..
 | `temporada · titulo y numeros` | Encabezado y los cuatro contadores |
 | `temporada · las 8 fechas` | Mes, año, competencia, sede y estado |
 | `simulador · texto de arriba` | Texto del simulador de logo |
+| `video · titulo y bajada` | Encabezado de la sección del video |
 | `contacto · titulo y texto` | Cierre y datos de contacto |
 | `pie de pagina` | La línea final |
 
