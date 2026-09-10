@@ -384,20 +384,24 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
   </nav>
 </div>
 <div class="hero">
-  <div class="hero-bg"><img src="assets/image-c2c34b5d8710.webp" alt="Natalí Elisei remando en aguas abiertas" width="1280" height="720" decoding="async" fetchpriority="high" loading="eager"></div>
-  <div class="hero-top">
-    <span>VILLA CONSTITUCIÓN, ARGENTINA — SELECCIÓN ARGENTINA DE SUP</span>
-    <span>DOSSIER 2026</span>
-  </div>
   <div class="wrap hero-inner">
-    <div>
-      <span class="eyebrow">Atleta elite · Stand Up Paddle</span>
-      <h1 style="margin-top:10px;"><span class="fill">Natalí</span><span class="outline">Elisei</span></h1>
-      <p class="role">Seleccionada Nacional (ASA / FAC). Triple Campeona Argentina 2026 en Sprint, Técnico y Maratón. Compite en el circuito internacional representando a la Argentina.</p>
+    <div class="hero-top">
+      <span>VILLA CONSTITUCIÓN, ARGENTINA — SELECCIÓN ARGENTINA DE SUP</span>
+      <span>DOSSIER 2026</span>
     </div>
-    <div class="hero-cta">
-      <a class="btn btn-solid" href="https://wa.link/lk04uq" target="_blank" rel="noopener noreferrer">Contactar para sponsoreo</a>
-      <a class="btn btn-outline" href="#simulador">Probá tu marca en la tabla ↗</a>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Atleta elite · Stand Up Paddle</span>
+        <h1 style="margin-top:10px;"><span class="fill">Natalí</span><span class="outline">Elisei</span></h1>
+        <p class="role">Seleccionada Nacional (ASA / FAC). Triple Campeona Argentina 2026 en Sprint, Técnico y Maratón. Compite en el circuito internacional representando a la Argentina.</p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="https://wa.link/lk04uq" target="_blank" rel="noopener noreferrer">Contactar para sponsoreo</a>
+          <a class="btn btn-outline" href="#simulador">Probá tu marca en la tabla ↗</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="assets/hero-natali.webp" alt="Natalí Elisei remando en aguas abiertas" width="1280" height="720" decoding="async" fetchpriority="high" loading="eager">
+      </div>
     </div>
   </div>
 </div>
@@ -1110,4 +1114,24 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
  const nav=[...document.querySelectorAll('.subnav nav a[href^="#"]')];const active=new IntersectionObserver(items=>{items.forEach(item=>{if(item.isIntersecting){nav.forEach(a=>a.setAttribute('aria-current',String(a.hash==='#'+item.target.id)))}})},{rootMargin:'-15% 0px -55% 0px'});nav.forEach(a=>{const section=document.querySelector(a.hash);if(section)active.observe(section)});
  }
 })();
-</script></body></html>
+</script>
+<style>
+  .hero{ height:auto; min-height:0; max-height:none; padding:calc(74px + clamp(20px,3vw,34px)) 0 clamp(44px,6vw,76px); overflow:visible; }
+  .hero-inner{ height:auto; justify-content:flex-start; padding-top:0; padding-bottom:0; gap:clamp(26px,4vw,44px); }
+  .hero-top{ position:static; top:auto; bottom:auto; display:flex; justify-content:space-between; gap:16px; }
+  .hero-top span:first-child{ max-width:none; }
+  .hero-grid{ display:grid; grid-template-columns:minmax(0,0.92fr) minmax(0,1.08fr); gap:clamp(26px,4vw,54px); align-items:center; }
+  .hero h1{ font-size:clamp(3.2rem,6.4vw,5.6rem); line-height:1.02; }
+  .hero .role{ margin-top:20px; max-width:38ch; }
+  .hero-media{ position:relative; }
+  .hero-media::before{ content:""; position:absolute; inset:14px -14px -14px 14px; background:var(--cyan); border-radius:14px; z-index:0; }
+  .hero-media img{ position:relative; z-index:1; display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; border-radius:14px; }
+  @media (max-width:900px){
+    .hero-grid{ grid-template-columns:1fr; gap:28px; }
+    .hero h1{ font-size:clamp(3rem,13vw,4.6rem); }
+    .hero .role{ max-width:none; }
+    .hero-top{ flex-direction:column; gap:6px; }
+    .hero-media::before{ inset:10px -10px -10px 10px; }
+  }
+</style>
+</body></html>
