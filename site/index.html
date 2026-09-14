@@ -456,7 +456,7 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
     </div>
   </section>
 
-  <section id="logros" aria-labelledby="tl-h">
+  <section id="logros" class="banda" aria-labelledby="tl-h">
     <div class="section-head reveal">
       <div>
         <!-- TEXTO: trayectoria · titulo -->
@@ -532,7 +532,7 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
 </div>
 
 <main class="wrap">
-  <section id="disciplinas" aria-labelledby="disc-h">
+  <section id="disciplinas" class="banda" aria-labelledby="disc-h">
     <div class="section-head reveal">
       <div>
         <!-- TEXTO: disciplinas · las cuatro tarjetas -->
@@ -734,7 +734,7 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
 </section>
 
 <main class="wrap">
-  <section class="offer" aria-labelledby="offer-h">
+  <section class="offer banda" aria-labelledby="offer-h">
     <div class="reveal">
       <span class="eyebrow">Propuesta</span>
       <h2 id="offer-h" style="margin-top:10px; margin-bottom:26px; font-size:2.2rem;">Qué le puedo ofrecer a tu marca</h2>
@@ -1646,4 +1646,18 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
   });
 })();
 </script>
+
+<style>
+  /* Perfil, Trayectoria, la frase y Disciplinas caian todos sobre el mismo
+     #F5F8FA: casi seis mil pixeles sin un corte. Estas secciones viven dentro
+     de un .wrap con ancho maximo, asi que el fondo se pinta con una sombra que
+     se derrama a los costados y un clip que la recorta arriba y abajo: llega
+     de borde a borde sin tocar el layout ni generar scroll horizontal. */
+  .banda{ background:var(--banda); box-shadow:0 0 0 100vmax var(--banda); clip-path:inset(0 -100vmax); }
+  #logros{ --banda:var(--surface-2); }
+  #disciplinas{ --banda:var(--coral-soft); }
+  .offer{ --banda:var(--cyan-soft); }
+  /* sobre estos tonos el azul de marca cae por debajo de 4.5:1 en texto chico */
+  #logros .eyebrow,#disciplinas .eyebrow,.offer .eyebrow{ color:#1A6099; }
+</style>
 </body></html>
