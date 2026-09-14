@@ -1271,13 +1271,7 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
 .partners-invite h3{font-family:var(--font-body);font-size:22px;font-weight:800;text-transform:none;line-height:1.4;margin-bottom:8px}
 .partners-invite p{font-size:16px;line-height:1.6;color:#E9F2F8;max-width:52ch}
 .partners-invite .btn{flex-shrink:0}
-.motion-button{position:fixed;right:16px;bottom:16px;z-index:99;min-height:44px;padding:10px 15px;background:#0B2036f2;color:white;border:1px solid #566573;border-radius:24px;font:600 13px var(--font-body);cursor:pointer;box-shadow:0 4px 20px #00000033}
-.motion-button:focus-visible{outline:3px solid #2F6FA8;outline-offset:3px}
 .subnav nav a[aria-current=true]{color:#2F6FA8;border-bottom-color:#2F6FA8}
-.motion-paused *,.motion-paused *::before,.motion-paused *::after{animation-play-state:paused!important;transition:none!important;scroll-behavior:auto!important}
-.motion-paused .reveal,.motion-paused .motion-entry{opacity:1!important;transform:none!important}
-.motion-paused .tilt{transform:none!important}
-.motion-paused #divider-img{transform:none!important}
 .motion-entry{opacity:1}
 @media(prefers-reduced-motion:no-preference){
  .motion-on .hero-bg img{animation:sup-drift 18s ease-in-out infinite alternate}
@@ -1292,7 +1286,7 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
  .motion-on .season-item:hover{box-shadow:inset 4px 0 #C99A2E;background:#2F6FA810}
  .motion-on .photo-card img{transition:scale .65s cubic-bezier(.2,.8,.2,1)}
  .motion-on .photo-card:hover img{scale:1.035}
- .motion-on .marquee:focus-within .marquee-track{animation-play-state:paused}
+ .motion-on .marquee:hover .marquee-track,.motion-on .marquee:focus-within .marquee-track{animation-play-state:paused}
  .motion-on .hero.out-of-view .hero-bg img{animation-play-state:paused}
 }
 @keyframes sup-drift{from{transform:scale(1.02) translateY(0)}to{transform:scale(1.09) translateY(-1%)}}
@@ -1300,15 +1294,15 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
 @keyframes sup-line{from{transform:translateX(0)}to{transform:translateX(280%)}}
 @media(max-width:1150px){.partner-card{flex-basis:260px;max-width:360px;padding:22px;min-height:225px}.partner-card img{height:124px}}
 @media(max-width:900px){.partners-head{grid-template-columns:1fr;gap:22px}.partners-invite{flex-direction:column;align-items:start}.subnav nav{gap:14px}.subnav nav a{font-size:13px}}
-@media(max-width:700px){.partners-invite{padding:24px}.partners-invite .btn{width:100%;justify-content:center}.partner-card{padding:18px}.motion-button{bottom:10px;right:10px;font-size:12px}.contact{padding-bottom:65px}.subnav nav a[href="#partners"]{display:block}.subnav nav{gap:12px}.partners-head p{font-size:16px}}
+@media(max-width:700px){.partners-invite{padding:24px}.partners-invite .btn{width:100%;justify-content:center}.partner-card{padding:18px}.contact{padding-bottom:65px}.subnav nav a[href="#partners"]{display:block}.subnav nav{gap:12px}.partners-head p{font-size:16px}}
 @media(max-width:380px){.subnav .brand{font-size:1rem}.subnav nav a{font-size:12px}}
 @media(max-width:560px){.partner-grid{max-width:400px;margin-inline:auto}.partner-card{flex-basis:100%;max-width:400px;min-height:250px}.partner-card img{height:146px}}
-</style><button id="motionToggle" class="motion-button" type="button" aria-pressed="false">Pausar movimiento</button><script>(()=>{
- const root=document.documentElement,button=document.getElementById('motionToggle'),preference=matchMedia('(prefers-reduced-motion: reduce)');
- let paused=preference.matches;try{paused=paused||sessionStorage.getItem('sup-motion-paused')==='1'}catch{}
- function apply(){root.classList.toggle('motion-on',!paused);root.classList.toggle('motion-paused',paused);button.textContent=paused?'Activar movimiento':'Pausar movimiento';button.setAttribute('aria-pressed',String(paused));}
- button.addEventListener('click',()=>{paused=!paused;apply();try{sessionStorage.setItem('sup-motion-paused',paused?'1':'0')}catch{}});
- preference.addEventListener('change',e=>{paused=e.matches;apply()});apply();
+</style><script>(()=>{
+ // El movimiento queda siempre activo. Quien tenga "reducir movimiento" en su
+ // sistema igual ve la pagina quieta: todas las reglas .motion-on viven dentro
+ // de @media (prefers-reduced-motion: no-preference), y ademas hay un corte
+ // global de animaciones para esa preferencia.
+ document.documentElement.classList.add('motion-on');
  const entries=[...document.querySelectorAll('.partners-head,.partner-card,.partners-invite')];
  if('IntersectionObserver'in window){const observer=new IntersectionObserver(items=>{items.forEach(item=>{if(item.isIntersecting){item.target.classList.add('is-shown');observer.unobserve(item.target)}})},{threshold:.12});entries.forEach((el,i)=>{el.classList.add('motion-entry');el.style.setProperty('--entry-delay',Math.min(i%3*85,170)+'ms');observer.observe(el)});
  const hero=document.querySelector('.hero');new IntersectionObserver(items=>hero.classList.toggle('out-of-view',!items[0].isIntersecting)).observe(hero);
