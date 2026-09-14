@@ -74,7 +74,7 @@ El mapa es un SVG dibujado a partir del contorno real de Argentina y Uruguay, y 
 
 ### Videos
 
-Los cuatro videos del sitio usan `preload="none"` y una imagen de portada (`assets/portada-*.webp`). Así la página no descarga ningún MP4 hasta que alguien toca play: son 22 MB entre los cuatro, contra 137 KB de portadas. **Si se agrega un video hay que agregarle su portada**, si no queda un rectángulo negro y conviene volver al preload.
+Los cuatro videos del sitio usan `preload="none"` y una imagen de portada (`assets/portada-*.webp`). Así la página no descarga ningún MP4 hasta que alguien toca play: son 21 MB entre los cuatro, contra 150 KB de portadas. **Si se agrega un video hay que agregarle su portada**, si no queda un rectángulo negro y conviene volver al preload.
 
 Los cuatro van **sin pista de audio**: no alcanza con silenciar el reproductor, porque el que mira puede subir el volumen. Un video nuevo hay que pasarlo por el mismo tratamiento antes de subirlo.
 
