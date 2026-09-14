@@ -55,6 +55,7 @@ Todos los bloques de texto están señalizados con un comentario `<!-- TEXTO: ..
 | `temporada · las 8 fechas` | Mes, año, competencia, sede y estado |
 | `simulador · texto de arriba` | Texto del simulador de logo |
 | `video · titulo y bajada` | Encabezado de la sección del video |
+| `video · pie de cada clip` | La etiqueta sobre cada uno de los dos videos |
 | `contacto · titulo y texto` | Cierre y datos de contacto |
 | `pie de pagina` | La línea final |
 
@@ -73,9 +74,9 @@ El mapa es un SVG dibujado a partir del contorno real de Argentina y Uruguay, y 
 
 ### Videos
 
-Los tres videos del sitio usan `preload="none"` y una imagen de portada (`assets/portada-*.webp`). Así la página no descarga ningún MP4 hasta que alguien toca play: son 14 MB entre los tres. **Si se agrega un video hay que agregarle su portada**, si no queda un rectángulo negro y conviene volver al preload.
+Los cuatro videos del sitio usan `preload="none"` y una imagen de portada (`assets/portada-*.webp`). Así la página no descarga ningún MP4 hasta que alguien toca play: son 22 MB entre los cuatro, contra 137 KB de portadas. **Si se agrega un video hay que agregarle su portada**, si no queda un rectángulo negro y conviene volver al preload.
 
-Los tres van **sin pista de audio**: no alcanza con silenciar el reproductor, porque el que mira puede subir el volumen. Un video nuevo hay que pasarlo por el mismo tratamiento antes de subirlo.
+Los cuatro van **sin pista de audio**: no alcanza con silenciar el reproductor, porque el que mira puede subir el volumen. Un video nuevo hay que pasarlo por el mismo tratamiento antes de subirlo.
 
 ## Contenido pendiente
 

@@ -984,15 +984,29 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
     <div class="cinta-head reveal">
       <span class="eyebrow">En el agua</span>
       <h2 id="video-h">Verla remar</h2>
-      <p>Veinticinco segundos, sin edición.</p>
+      <p>Sin edición: una remada y la largada de una competencia.</p>
     </div>
-    <div class="cinta-marco reveal">
-      <video controls playsinline preload="none" width="1024" height="576"
-             poster="assets/portada-video.webp"
-             aria-label="Natalí Elisei remando en el río">
-        <source src="assets/natali-video.mp4" type="video/mp4">
-        Tu navegador no puede reproducir este video.
-      </video>
+    <!-- TEXTO: video · pie de cada clip -->
+    <div class="cinta-clips">
+      <figure class="cinta-marco reveal">
+        <video controls playsinline preload="none" width="1024" height="576"
+               poster="assets/portada-video.webp"
+               aria-label="Natalí Elisei remando en el agua">
+          <source src="assets/natali-video.mp4" type="video/mp4">
+          Tu navegador no puede reproducir este video.
+        </video>
+        <span class="cap">Remando</span>
+      </figure>
+
+      <figure class="cinta-marco reveal">
+        <video controls playsinline preload="none" width="1024" height="576"
+               poster="assets/portada-carrera.webp"
+               aria-label="Largada de una competencia de SUP desde la playa">
+          <source src="assets/natali-carrera.mp4" type="video/mp4">
+          Tu navegador no puede reproducir este video.
+        </video>
+        <span class="cap">Largada de competencia</span>
+      </figure>
     </div>
   </div>
 </section>
@@ -1318,8 +1332,9 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
   .cinta-head .eyebrow{color:var(--cyan)}
   .cinta-head h2{margin-top:10px;color:#fff;font-size:clamp(2.1rem,4.2vw,3.2rem)}
   .cinta-head p{margin-top:14px;font-size:1rem;line-height:1.6;color:#C7D6E0}
+  .cinta-clips{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:30px; max-width:1120px; margin:0 auto; align-items:start; }
   .cinta-marco{
-    position:relative;max-width:900px;margin:0 auto;border-radius:16px;overflow:hidden;
+    position:relative;margin:0;border-radius:16px;overflow:hidden;
     background:#081627;box-shadow:0 26px 60px -28px rgba(0,0,0,0.75);
   }
   .cinta-marco::before{
@@ -1329,6 +1344,16 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
   .cinta-marco video{
     position:relative;z-index:1;display:block;width:100%;height:auto;aspect-ratio:16/9;
     background:#081627;border-radius:16px;
+  }
+  /* la etiqueta va arriba: abajo estan los controles del reproductor */
+  .cinta-marco .cap{
+    position:absolute; left:14px; top:14px; z-index:2; font-family:var(--font-mono);
+    font-size:0.68rem; color:#fff; background:rgba(8,22,39,0.72); padding:5px 10px;
+    border-radius:20px; letter-spacing:0.03em; transition:opacity .2s;
+  }
+  .cinta-marco.andando .cap{ opacity:0; pointer-events:none; }
+  @media (max-width:980px){
+    .cinta-clips{ grid-template-columns:1fr; max-width:640px; gap:26px; }
   }
   @media (max-width:700px){
     .cinta-marco::before{inset:10px -10px -10px 10px}
@@ -1616,7 +1641,7 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
   });
 
   // el pie del video vive donde despues aparecen los controles
-  document.querySelectorAll('.clip-card video').forEach(function(v){
+  document.querySelectorAll('.clip-card video, .cinta-marco video').forEach(function(v){
     v.addEventListener('play', function(){ v.parentElement.classList.add('andando'); }, {once:true});
   });
 })();
