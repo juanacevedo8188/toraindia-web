@@ -44,6 +44,10 @@ Todos los bloques de texto están señalizados con un comentario `<!-- TEXTO: ..
 | `frase destacada sobre la foto` | La cita grande sobre la foto |
 | `disciplinas · las tarjetas` | Sprint, Técnico, Maratón |
 | `compromiso · texto y numeros` | Sección "Más que competir" |
+| `clinicas · bajada que explica que es una clinica` | El párrafo de arriba de la sección |
+| `clinicas · las sedes` | Ciudad y provincia o país de cada clínica |
+| `clinicas · que gana una marca` | El recuadro de activación para sponsors |
+| `clinicas · invitacion a las escuelas` | El cierre con el botón de WhatsApp |
 | `categorias de sponsors que busca` | Las etiquetas de rubros |
 | `sponsors · marcas que la acompañan` | Sección de sponsors |
 | `temporada · titulo y numeros` | Encabezado y los cuatro contadores |
@@ -62,6 +66,10 @@ Todos los bloques de texto están señalizados con un comentario `<!-- TEXTO: ..
 - **Al reemplazar una imagen hay que cambiarle el nombre** (por ejemplo `anio-2022-aloha.webp` en lugar de `anio-2022.webp`) y actualizar la referencia en el HTML. La carpeta `assets/` se sirve con caché de un año e `immutable`: si se pisa un archivo conservando el nombre, los navegadores siguen mostrando la versión vieja y no vuelven a pedirla.
 - Al cambiar el texto que se ve al compartir el link, WhatsApp y las redes pueden tardar en actualizarlo por su propia caché.
 
+### Sumar una sede de clínicas
+
+El mapa es un SVG dibujado a partir del contorno real de Argentina y Uruguay, y cada punto se calcula desde la latitud y la longitud de la ciudad. Agregar un renglón a la lista **no** dibuja el punto: hay que pedir que recalculen el mapa con la sede nueva.
+
 ## Contenido pendiente
 
 Del Campeonato Argentino ASA y del circuito FAC todavía no están todas las sedes. Se van sumando al bloque `TEXTO: temporada · las 8 fechas` a medida que las confirman, y hay que mover los contadores de `TEXTO: temporada · titulo y numeros` cuando cambia la cantidad de fechas. El Mundial ICF 2027 espera sede y fecha.
@@ -69,6 +77,8 @@ Del Campeonato Argentino ASA y del circuito FAC todavía no están todas las sed
 La sección **Testimonios se sacó** por ahora: los tres textos eran de ejemplo. Para volver a ponerla está entera en el historial de git, en el commit anterior al que la quitó.
 
 Los logos de sponsors viven en `site/assets/sponsor-*.webp` y cada tarjeta enlaza al Instagram de la marca. Al copiar un link de Instagram hay que borrarle el `?stkn=...`: es un token de compartir atado a la sesion de quien lo copio y no corresponde publicarlo.
+
+Los textos de la sección Clínicas son un borrador: la definición de qué es una clínica y el recuadro "Qué gana una marca" los escribí yo, no salieron de Natalí. Conviene que los repase antes de mandar el link. Faltan además los años de cada sede y, si los tiene, cuántas clínicas dio y cuánta gente pasó.
 
 Falta el bloque de alcance (seguidores, alcance mensual, público en competencia), que es el dato que primero pide una marca.
 
