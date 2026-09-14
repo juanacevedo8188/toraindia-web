@@ -616,6 +616,7 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
   .clinicas-sedes{ list-style:none; margin:0 0 38px; padding:0; display:grid; gap:2px; }
   .clinicas-sedes li{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:14px; align-items:baseline; padding:13px 4px; border-bottom:1px solid var(--line); }
   .clinicas-sedes li b{ font-size:1.05rem; font-weight:800; color:var(--ink); }
+  .clinicas-sedes li b em{ margin-left:10px; font-style:normal; font-size:0.74rem; font-weight:700; letter-spacing:0.03em; color:var(--ink-soft); white-space:nowrap; }
   .clinicas-sedes li span{ font-size:0.76rem; letter-spacing:0.07em; text-transform:uppercase; font-weight:700; color:var(--coral); }
   .clinicas-sedes li.activa b{ color:var(--coral); }
 
@@ -657,7 +658,7 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
         <!-- TEXTO: clinicas · las sedes (ciudad y provincia o pais)
              el punto del mapa se calcula aparte a partir de la latitud y la
              longitud: al sumar una sede hay que pedir que lo recalculen -->
-        <ol class="clinicas-sedes"><li data-sede="salto"><b>Salto</b><span>Uruguay</span></li><li data-sede="rosar"><b>Rosario</b><span>Santa Fe</span></li><li data-sede="villac"><b>Villa Constitución</b><span>Santa Fe</span></li><li data-sede="quequ"><b>Quequén</b><span>Buenos Aires</span></li></ol>
+        <ol class="clinicas-sedes"><li data-sede="salto"><b>Salto<em>2 clínicas</em></b><span>Uruguay</span></li><li data-sede="rosar"><b>Rosario</b><span>Santa Fe</span></li><li data-sede="villac"><b>Villa Constitución</b><span>Santa Fe</span></li><li data-sede="quequ"><b>Quequén</b><span>Buenos Aires</span></li></ol>
 
         <!-- TEXTO: clinicas · que gana una marca -->
         <div class="clinicas-marca reveal">
