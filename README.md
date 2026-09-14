@@ -59,6 +59,7 @@ Todos los bloques de texto están señalizados con un comentario `<!-- TEXTO: ..
 - Escribir acentos y ñ con normalidad.
 - No borrar los `<` ni los `>`. Si se rompe algo, GitHub guarda todas las versiones: entrar en History y volver a la anterior.
 - Las imágenes se conservan junto al HTML, en `site/assets/`.
+- **Al reemplazar una imagen hay que cambiarle el nombre** (por ejemplo `anio-2022-aloha.webp` en lugar de `anio-2022.webp`) y actualizar la referencia en el HTML. La carpeta `assets/` se sirve con caché de un año e `immutable`: si se pisa un archivo conservando el nombre, los navegadores siguen mostrando la versión vieja y no vuelven a pedirla.
 - Al cambiar el texto que se ve al compartir el link, WhatsApp y las redes pueden tardar en actualizarlo por su propia caché.
 
 ## Contenido pendiente
