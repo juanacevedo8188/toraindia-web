@@ -68,7 +68,7 @@ Del Campeonato Argentino ASA y del circuito FAC todavía no están todas las sed
 
 La sección **Testimonios se sacó** por ahora: los tres textos eran de ejemplo. Para volver a ponerla está entera en el historial de git, en el commit anterior al que la quitó.
 
-Los logos de sponsors viven en `site/assets/sponsor-*.webp`. Cada tarjeta es un `div` sin enlace: cuando haya web o Instagram de cada marca, se cambia `<div class="partner-card">` por `<a class="partner-card" href="..." target="_blank" rel="noopener noreferrer">` y el `</div>` del final por `</a>`.
+Los logos de sponsors viven en `site/assets/sponsor-*.webp` y cada tarjeta enlaza al Instagram de la marca. Al copiar un link de Instagram hay que borrarle el `?stkn=...`: es un token de compartir atado a la sesion de quien lo copio y no corresponde publicarlo.
 
 Falta el bloque de alcance (seguidores, alcance mensual, público en competencia), que es el dato que primero pide una marca.
 
