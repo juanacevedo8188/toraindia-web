@@ -42,9 +42,8 @@ Todos los bloques de texto están señalizados con un comentario `<!-- TEXTO: ..
 | `trayectoria · titulo` | Encabezado de resultados |
 | `trayectoria · resultados año por año` | Cada fila de la línea de tiempo |
 | `frase destacada sobre la foto` | La cita grande sobre la foto |
-| `disciplinas · las cuatro tarjetas` | Sprint, Técnico, Maratón, Formación |
+| `disciplinas · las tarjetas` | Sprint, Técnico, Maratón |
 | `compromiso · texto y numeros` | Sección "Más que competir" |
-| `testimonios · cada bloque es una persona` | Frase, nombre y rol de cada testimonio |
 | `categorias de sponsors que busca` | Las etiquetas de rubros |
 | `sponsors · marcas que la acompañan` | Sección de sponsors |
 | `temporada · titulo y numeros` | Encabezado y los cuatro contadores |
@@ -59,16 +58,17 @@ Todos los bloques de texto están señalizados con un comentario `<!-- TEXTO: ..
 - Escribir acentos y ñ con normalidad.
 - No borrar los `<` ni los `>`. Si se rompe algo, GitHub guarda todas las versiones: entrar en History y volver a la anterior.
 - Las imágenes se conservan junto al HTML, en `site/assets/`.
+- Para sumar un sponsor: dejar el logo en `site/assets/` como `sponsor-<marca>.webp`, con fondo transparente y unos 600x240, y copiar una tarjeta de `partner-grid` cambiando el archivo y el nombre.
 - **Al reemplazar una imagen hay que cambiarle el nombre** (por ejemplo `anio-2022-aloha.webp` en lugar de `anio-2022.webp`) y actualizar la referencia en el HTML. La carpeta `assets/` se sirve con caché de un año e `immutable`: si se pisa un archivo conservando el nombre, los navegadores siguen mostrando la versión vieja y no vuelven a pedirla.
 - Al cambiar el texto que se ve al compartir el link, WhatsApp y las redes pueden tardar en actualizarlo por su propia caché.
 
 ## Contenido pendiente
 
-El calendario de la temporada 2026/27 tiene **fechas inventadas** y lo avisa en pantalla. Hay que reemplazarlas por las reales antes de mandarle el link a una marca: bloque `TEXTO: temporada · las 8 fechas`. Si cambia la cantidad de fechas, actualizar también los cuatro contadores en `TEXTO: temporada · titulo y numeros`.
+Del Campeonato Argentino ASA y del circuito FAC todavía no están todas las sedes. Se van sumando al bloque `TEXTO: temporada · las 8 fechas` a medida que las confirman, y hay que mover los contadores de `TEXTO: temporada · titulo y numeros` cuando cambia la cantidad de fechas. El Mundial ICF 2027 espera sede y fecha.
 
-Los tres testimonios están **inventados** y lo avisan en pantalla. Hay que reemplazarlos por frases reales, con nombre y rol de quien las dice: bloque `TEXTO: testimonios`.
+La sección **Testimonios se sacó** por ahora: los tres textos eran de ejemplo. Para volver a ponerla está entera en el historial de git, en el commit anterior al que la quitó.
 
-La sección Sponsors espera nombres y logos confirmados. No se deben interpretar las marcas visibles en las tablas de referencia como sponsors.
+Los logos de sponsors viven en `site/assets/sponsor-*.webp`. Cada tarjeta es un `div` sin enlace: cuando haya web o Instagram de cada marca, se cambia `<div class="partner-card">` por `<a class="partner-card" href="..." target="_blank" rel="noopener noreferrer">` y el `</div>` del final por `</a>`.
 
 Falta el bloque de alcance (seguidores, alcance mensual, público en competencia), que es el dato que primero pide una marca.
 
