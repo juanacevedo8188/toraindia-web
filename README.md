@@ -75,6 +75,8 @@ El mapa es un SVG dibujado a partir del contorno real de Argentina y Uruguay, y 
 
 Los tres videos del sitio usan `preload="none"` y una imagen de portada (`assets/portada-*.webp`). Así la página no descarga ningún MP4 hasta que alguien toca play: son 14 MB entre los tres. **Si se agrega un video hay que agregarle su portada**, si no queda un rectángulo negro y conviene volver al preload.
 
+Los tres van **sin pista de audio**: no alcanza con silenciar el reproductor, porque el que mira puede subir el volumen. Un video nuevo hay que pasarlo por el mismo tratamiento antes de subirlo.
+
 ## Contenido pendiente
 
 Del Campeonato Argentino ASA y del circuito FAC todavía no están todas las sedes. Se van sumando al bloque `TEXTO: temporada · las 8 fechas` a medida que las confirman, y hay que mover los contadores de `TEXTO: temporada · titulo y numeros` cuando cambia la cantidad de fechas. El Mundial ICF 2027 espera sede y fecha.
