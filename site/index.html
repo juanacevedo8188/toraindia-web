@@ -706,6 +706,22 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
     display:inline-block; margin-top:9px; font-family:var(--font-mono); font-size:0.64rem; letter-spacing:0.09em;
     text-transform:uppercase; color:var(--coral); font-weight:600;
   }
+  /* sedes de un circuito con varias fechas */
+  .season-sedes{ list-style:none; margin:12px 0 0; padding:0; display:grid; gap:7px; }
+  .season-sedes li{
+    display:grid; grid-template-columns:132px minmax(0,1fr); gap:10px; align-items:baseline;
+    font-size:0.86rem; line-height:1.45; color:var(--ink-soft);
+  }
+  .season-sedes li b{
+    font-size:0.68rem; letter-spacing:0.07em; text-transform:uppercase; font-weight:700; color:var(--coral);
+  }
+  .season-sedes li.por-venir{
+    grid-template-columns:1fr; padding-top:6px; border-top:1px dashed var(--line);
+    font-size:0.8rem; font-style:italic;
+  }
+  @media (max-width:640px){
+    .season-sedes li{ grid-template-columns:1fr; gap:1px; }
+  }
   .season-tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:9px; }
   .season-tags .tag{ font-size:0.7rem; font-weight:700; padding:4px 11px; border-radius:100px; background:var(--cyan-soft); color:var(--ink); }
 
@@ -737,27 +753,25 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
         <span class="eyebrow">Calendario</span>
         <h2 id="season-h">Temporada 2026 / 27</h2>
       </div>
-      <p class="season-lede">Dónde va a estar tu marca en los próximos meses: ocho fechas entre el circuito nacional y el internacional.</p>
+      <p class="season-lede">Dónde va a estar tu marca: dos mundiales, el circuito nacional completo y fechas en Brasil y Colombia.</p>
     </div>
-
-    <p class="season-demo reveal"><b>Datos de ejemplo</b> Este calendario es una maqueta para mostrar el diseño. Reemplazá las fechas por las reales antes de enviar el dossier a una marca.</p>
 
     <div class="season-stats reveal">
-      <div class="season-stat"><span class="num tabular">8</span><span class="label">Competencias</span></div>
-      <div class="season-stat"><span class="num tabular">6</span><span class="label">Países</span></div>
-      <div class="season-stat"><span class="num tabular">4</span><span class="label">Con transmisión</span></div>
-      <div class="season-stat"><span class="num tabular">10</span><span class="label">Meses de temporada</span></div>
+      <div class="season-stat"><span class="num tabular">5</span><span class="label">Fechas confirmadas</span></div>
+      <div class="season-stat"><span class="num tabular">4</span><span class="label">Países</span></div>
+      <div class="season-stat"><span class="num tabular">2</span><span class="label">Mundiales ICF</span></div>
+      <div class="season-stat"><span class="num tabular">2</span><span class="label">Circuitos nacionales</span></div>
     </div>
 
-    <!-- TEXTO: temporada · las 8 fechas (mes, año, competencia, sede) -->
+    <!-- TEXTO: temporada · las fechas (mes, año, competencia, sede, estado) -->
     <ol class="season-rail">
-      <li class="season-item is-confirmed reveal">
+      <li class="season-item is-confirmed is-target reveal">
         <div class="season-when"><span class="month">Oct</span><span class="year">2026</span></div>
         <div class="season-node" aria-hidden="true"></div>
         <div class="season-body">
-          <strong>Copa Ciudad de Rosario</strong>
-          <span class="season-place">Rosario, Santa Fe · Argentina</span>
-          <div class="season-tags"><span class="tag">Sprint</span><span class="tag">Técnico</span></div>
+          <strong>Campeonato Mundial ICF</strong>
+          <span class="season-place">Sabaudia · Italia · 14 al 18 de octubre</span>
+          <span class="season-goal">◆ Objetivo de temporada</span>
         </div>
         <div class="season-flags"><span class="status">Confirmado</span></div>
       </li>
@@ -766,78 +780,56 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
         <div class="season-when"><span class="month">Nov</span><span class="year">2026</span></div>
         <div class="season-node" aria-hidden="true"></div>
         <div class="season-body">
-          <strong>Final Nacional FAC</strong>
-          <span class="season-place">Villa Constitución, Santa Fe · Argentina</span>
-          <div class="season-tags"><span class="tag">Sprint</span><span class="tag">Técnico</span><span class="tag">Maratón</span></div>
-        </div>
-        <div class="season-flags"><span class="status">Confirmado</span></div>
-      </li>
-
-      <li class="season-item is-confirmed reveal">
-        <div class="season-when"><span class="month">Dic</span><span class="year">2026</span></div>
-        <div class="season-node" aria-hidden="true"></div>
-        <div class="season-body">
-          <strong>Alas Tour — Global Finals</strong>
-          <span class="season-place">Punta Mango · El Salvador</span>
-          <div class="season-tags"><span class="tag">Maratón</span></div>
-        </div>
-        <div class="season-flags"><span class="status">Confirmado</span><span class="live">Transmisión</span></div>
-      </li>
-
-      <li class="season-item is-confirmed reveal">
-        <div class="season-when"><span class="month">Feb</span><span class="year">2027</span></div>
-        <div class="season-node" aria-hidden="true"></div>
-        <div class="season-body">
-          <strong>Campeonato Argentino de SUP — ASA</strong>
-          <span class="season-place">Quequén, Buenos Aires · Argentina</span>
-          <div class="season-tags"><span class="tag">Sprint</span><span class="tag">Técnico</span><span class="tag">Maratón</span></div>
-        </div>
-        <div class="season-flags"><span class="status">Confirmado</span></div>
-      </li>
-
-      <li class="season-item is-confirmed reveal">
-        <div class="season-when"><span class="month">Mar</span><span class="year">2027</span></div>
-        <div class="season-node" aria-hidden="true"></div>
-        <div class="season-body">
-          <strong>Aloha Spirit Festival</strong>
-          <span class="season-place">Ilhabela · Brasil</span>
-          <div class="season-tags"><span class="tag">Maratón</span></div>
+          <strong>Aloha Spirit</strong>
+          <span class="season-place">Paraty, Río de Janeiro · Brasil</span>
         </div>
         <div class="season-flags"><span class="status">Confirmado</span><span class="live">Transmisión</span></div>
       </li>
 
       <li class="season-item reveal">
-        <div class="season-when"><span class="month">May</span><span class="year">2027</span></div>
-        <div class="season-node" aria-hidden="true"></div>
-        <div class="season-body">
-          <strong>Sudamericano de SUP</strong>
-          <span class="season-place">Punta del Este · Uruguay</span>
-          <div class="season-tags"><span class="tag">Sprint</span><span class="tag">Técnico</span><span class="tag">Maratón</span></div>
-        </div>
-        <div class="season-flags"><span class="status">Tentativo</span><span class="live">Transmisión</span></div>
-      </li>
-
-      <li class="season-item reveal">
-        <div class="season-when"><span class="month">Jun</span><span class="year">2027</span></div>
+        <div class="season-when"><span class="month">Nov</span><span class="year">2026</span></div>
         <div class="season-node" aria-hidden="true"></div>
         <div class="season-body">
           <strong>Copa América de SUP</strong>
           <span class="season-place">Cartagena · Colombia</span>
-          <div class="season-tags"><span class="tag">Sprint</span><span class="tag">Técnico</span><span class="tag">Maratón</span></div>
         </div>
         <div class="season-flags"><span class="status">Tentativo</span></div>
       </li>
 
-      <li class="season-item is-confirmed is-target reveal">
-        <div class="season-when"><span class="month">Jul</span><span class="year">2027</span></div>
+      <li class="season-item is-confirmed reveal">
+        <div class="season-when"><span class="month">Nov</span><span class="year">26 · 27</span></div>
+        <div class="season-node" aria-hidden="true"></div>
+        <div class="season-body">
+          <strong>Campeonato Argentino ASA</strong>
+          <span class="season-place">Circuito nacional · compite en todas las fechas</span>
+          <ul class="season-sedes">
+            <li><b>Nov 2026</b> Zárate, Buenos Aires</li>
+            <li><b>Nov · Dic 2026</b> Mar del Plata</li>
+            <li><b>20 y 21 Feb 2027</b> Bariloche</li>
+            <li class="por-venir">Las sedes restantes se anuncian durante la temporada</li>
+          </ul>
+        </div>
+        <div class="season-flags"><span class="status">Confirmado</span></div>
+      </li>
+
+      <li class="season-item is-confirmed reveal">
+        <div class="season-when"><span class="month">Todo</span><span class="year">el año</span></div>
+        <div class="season-node" aria-hidden="true"></div>
+        <div class="season-body">
+          <strong>Circuito FAC</strong>
+          <span class="season-place">Fechas y sedes se confirman sobre la marcha · compite en todas</span>
+        </div>
+        <div class="season-flags"><span class="status">Confirmado</span></div>
+      </li>
+
+      <li class="season-item reveal">
+        <div class="season-when"><span class="month">2027</span><span class="year">a definir</span></div>
         <div class="season-node" aria-hidden="true"></div>
         <div class="season-body">
           <strong>Campeonato Mundial ICF</strong>
-          <span class="season-place">Lago de Garda · Italia</span>
-          <div class="season-tags"><span class="tag">Sprint</span><span class="tag">Técnico</span></div>
-          <span class="season-goal">◆ Objetivo de temporada</span>
+          <span class="season-place">Sede y fecha a confirmar</span>
         </div>
-        <div class="season-flags"><span class="status">Confirmado</span><span class="live">Transmisión</span></div>
+        <div class="season-flags"><span class="status">Tentativo</span></div>
       </li>
     </ol>
 
