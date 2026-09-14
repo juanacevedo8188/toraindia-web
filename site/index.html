@@ -626,6 +626,18 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
 
   .clinicas-cta p{ margin:0 0 20px; font-size:0.95rem; line-height:1.65; color:var(--ink-soft); max-width:46ch; }
 
+
+  .clinicas-videos{ margin-top:46px; }
+  .clinicas-videos h3{ font-family:var(--font-body); font-size:1.05rem; font-weight:800; text-transform:none; letter-spacing:0; color:var(--ink); margin:0 0 18px; }
+  .clinicas-clips{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; max-width:640px; }
+  .clinicas-clips figure{ margin:0; }
+  /* los dos clips son verticales de celular: el poster evita que salten al cargar */
+  .clinicas-clips video{ display:block; width:100%; height:auto; aspect-ratio:9/16; background:var(--navy); border-radius:10px; }
+  .clinicas-clips figcaption{ margin-top:10px; font-size:0.82rem; line-height:1.45; color:var(--ink-soft); }
+  @media (max-width:520px){
+    .clinicas-clips{ grid-template-columns:1fr; max-width:300px; margin-inline:auto; }
+  }
+
   @media (max-width:860px){
     .clinicas-layout{ grid-template-columns:1fr; gap:34px; }
     .clinicas-mapa svg{ width:min(78%, 268px); margin:0 auto; }
@@ -675,6 +687,31 @@ section{padding-block:100px}.bio{gap:80px}.photo-card{border-radius:2px;box-shad
         </div>
       </div>
     </div>
+
+      <!-- TEXTO: clinicas · pie de cada video -->
+      <div class="clinicas-videos">
+        <h3>Cómo se ve una clínica</h3>
+        <div class="clinicas-clips">
+        <figure class="reveal">
+          <video controls playsinline preload="none" width="720" height="1280"
+                 poster="assets/portada-clinica-salto.webp"
+                 aria-label="Clínica de SUP en Salto, Uruguay">
+            <source src="assets/clinica-salto.mp4" type="video/mp4">
+            Tu navegador no puede reproducir este video.
+          </video>
+          <figcaption>Salto, Uruguay</figcaption>
+        </figure>
+        <figure class="reveal">
+          <video controls playsinline preload="none" width="720" height="1280"
+                 poster="assets/portada-clinica-rosario.webp"
+                 aria-label="Clínica de SUP en Rosario, Santa Fe">
+            <source src="assets/clinica-rosario.mp4" type="video/mp4">
+            Tu navegador no puede reproducir este video.
+          </video>
+          <figcaption>Rosario, Santa Fe</figcaption>
+        </figure>
+        </div>
+      </div>
   </div>
 </section>
 

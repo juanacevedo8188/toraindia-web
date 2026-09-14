@@ -48,6 +48,7 @@ Todos los bloques de texto están señalizados con un comentario `<!-- TEXTO: ..
 | `clinicas · las sedes` | Ciudad y provincia o país de cada clínica |
 | `clinicas · que gana una marca` | El recuadro de activación para sponsors |
 | `clinicas · invitacion a las escuelas` | El cierre con el botón de WhatsApp |
+| `clinicas · pie de cada video` | El texto debajo de cada clip |
 | `categorias de sponsors que busca` | Las etiquetas de rubros |
 | `sponsors · marcas que la acompañan` | Sección de sponsors |
 | `temporada · titulo y numeros` | Encabezado y los cuatro contadores |
@@ -70,6 +71,10 @@ Todos los bloques de texto están señalizados con un comentario `<!-- TEXTO: ..
 
 El mapa es un SVG dibujado a partir del contorno real de Argentina y Uruguay, y cada punto se calcula desde la latitud y la longitud de la ciudad. Agregar un renglón a la lista **no** dibuja el punto: hay que pedir que recalculen el mapa con la sede nueva.
 
+### Videos
+
+Los tres videos del sitio usan `preload="none"` y una imagen de portada (`assets/portada-*.webp`). Así la página no descarga ningún MP4 hasta que alguien toca play: son 14 MB entre los tres. **Si se agrega un video hay que agregarle su portada**, si no queda un rectángulo negro y conviene volver al preload.
+
 ## Contenido pendiente
 
 Del Campeonato Argentino ASA y del circuito FAC todavía no están todas las sedes. Se van sumando al bloque `TEXTO: temporada · las 8 fechas` a medida que las confirman, y hay que mover los contadores de `TEXTO: temporada · titulo y numeros` cuando cambia la cantidad de fechas. El Mundial ICF 2027 espera sede y fecha.
@@ -78,7 +83,7 @@ La sección **Testimonios se sacó** por ahora: los tres textos eran de ejemplo.
 
 Los logos de sponsors viven en `site/assets/sponsor-*.webp` y cada tarjeta enlaza al Instagram de la marca. Al copiar un link de Instagram hay que borrarle el `?stkn=...`: es un token de compartir atado a la sesion de quien lo copio y no corresponde publicarlo.
 
-Los textos de la sección Clínicas son un borrador: la definición de qué es una clínica y el recuadro "Qué gana una marca" los escribí yo, no salieron de Natalí. Conviene que los repase antes de mandar el link. Faltan además los años de cada sede y, si los tiene, cuántas clínicas dio y cuánta gente pasó.
+Los textos de la sección Clínicas son un borrador: la definición de qué es una clínica y el recuadro "Qué gana una marca" los escribí yo, no salieron de Natalí. Conviene que los repase antes de mandar el link. Faltan además los años de cada sede y, si los tiene, cuánta gente pasó por las clínicas.
 
 Falta el bloque de alcance (seguidores, alcance mensual, público en competencia), que es el dato que primero pide una marca.
 
