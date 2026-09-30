@@ -50,6 +50,7 @@ Todos los bloques de texto están señalizados con un comentario `<!-- TEXTO: ..
 | `clinicas · invitacion a las escuelas` | El cierre con el botón de WhatsApp |
 | `clinicas · pie de cada video` | El texto debajo de cada clip |
 | `categorias de sponsors que busca` | Las etiquetas de rubros |
+| `sponsors · destacado Paladini, sponsor del Mundial` | El recuadro grande de Paladini arriba de la grilla |
 | `sponsors · marcas que la acompañan` | Sección de sponsors |
 | `temporada · titulo y numeros` | Encabezado y los cuatro contadores |
 | `temporada · las 8 fechas` | Mes, año, competencia, sede y estado |
